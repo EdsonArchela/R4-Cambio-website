@@ -62,22 +62,22 @@ const Header = () => {
         </li>
         <li>
           <Link href="/articles">
-            <a>Artigos</a>
+            <a>Para Você</a>
           </Link>
         </li>
         <li>
           <Link href="/calculators/retirement">
-            <a>Calculadoras</a>
+            <a>Para sua Empresa</a>
           </Link>
         </li>
         <li>
           <Link href="/about">
-            <a>Sobre mim</a>
+            <a>Blog</a>
           </Link>
         </li>
         <li>
           <Link href="/contact">
-            <a>Contatos</a>
+            <a>Contato</a>
           </Link>
         </li>
       </ul>

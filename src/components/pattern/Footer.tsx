@@ -46,10 +46,8 @@ const Container = styled.footer`
       display: flex;
       align-items: center;
       justify-content: center;
-      img {
-        padding-right: 1rem;
-        padding-bottom: 1rem;
-      }
+      font-size: 1.3rem;
+      margin-bottom:1rem;
     }
   }
 
@@ -99,7 +97,7 @@ const Footer = () => (
       <h2>ATENDIMENTO PERSONALIZADO</h2>
       <div className="phone">
         <img src="/assets/call.svg" alt="" />
-        <span>43 3333-3333</span>
+        <span>+55 43 3142-1032</span>
       </div>
     </div>
     <div className="map">

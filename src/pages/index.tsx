@@ -1,5 +1,6 @@
 import { Html } from 'next/document'
 import styled from 'styled-components'
+import { darken } from 'polished'
 import Header from '../components/pattern/Header'
 import Footer from '../components/pattern/Footer'
 
@@ -185,6 +186,12 @@ const FourthSection = styled.section`
     border: none;
     border-radius: 6px;
     padding: 0.75rem 3rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.45);
+    &:focus {outline:0;}
+    &:active{
+      box-shadow: none;
+      background-color: ${({ theme }) => darken('0.05',  theme.colors.primary)};
+    }
   }
 `
 
