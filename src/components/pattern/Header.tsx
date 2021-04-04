@@ -56,29 +56,21 @@ const Header = () => {
       <Image src="/assets/logo.svg" alt="R4 Câmbio" width={152} height={70} />
       <ul>
         <li className={asPath === '/' ? 'active' : undefined}>
-          <Link href="/">
-            <a>Home</a>
-          </Link>
+          <Link href="/">Home</Link>
         </li>
         <li>
-          <Link href="/articles">
-            <a>Para Você</a>
+          <Link href="/you" as="para-voce">
+            Para Você
           </Link>
         </li>
-        <li>
-          <Link href="/calculators/retirement">
-            <a>Para sua Empresa</a>
-          </Link>
+        <li className={asPath === '/enterprise' ? 'active' : undefined}>
+          <Link href="/enterprise">Para sua Empresa</Link>
         </li>
         <li>
-          <Link href="/about">
-            <a>Blog</a>
-          </Link>
+          <Link href="/about">Blog</Link>
         </li>
         <li>
-          <Link href="/contact">
-            <a>Contato</a>
-          </Link>
+          <Link href="/contact">Contato</Link>
         </li>
       </ul>
       <div />

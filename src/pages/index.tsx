@@ -1,4 +1,4 @@
-import { Html } from 'next/document'
+import React from 'react'
 import styled from 'styled-components'
 import { darken } from 'polished'
 import Header from '../components/pattern/Header'
@@ -28,28 +28,6 @@ const FirstSection = styled.section`
     position: absolute;
     left: 220px;
     bottom: 125px;
-
-    button {
-      max-width: 270px;
-      background: linear-gradient(
-        ${({ theme }) => theme.colors.primary},
-        ${({ theme }) => theme.colors.secondary}
-      );
-      border: none;
-      border-radius: 5px;
-      padding: 0.5rem;
-      font-family: inherit;
-      font-weight: bold;
-      color: inherit;
-      font-size: 28px;
-      transition: background 0.3s ease-in-out;
-      &:active {
-        background: linear-gradient(
-          ${({ theme }) => theme.colors.secondary},
-          ${({ theme }) => theme.colors.primary}
-        );
-      }
-    }
   }
 
   .coins {
@@ -187,10 +165,12 @@ const FourthSection = styled.section`
     border-radius: 6px;
     padding: 0.75rem 3rem;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.45);
-    &:focus {outline:0;}
-    &:active{
+    &:focus {
+      outline: 0;
+    }
+    &:active {
       box-shadow: none;
-      background-color: ${({ theme }) => darken('0.05',  theme.colors.primary)};
+      background-color: ${({ theme }) => darken('0.05', theme.colors.primary)};
     }
   }
 `
@@ -246,7 +226,7 @@ const PickCard = styled.div<{ img: string }>`
   }
 `
 
-const Index = () => {
+const Index = (): JSX.Element => {
   return (
     <div>
       <Header />
@@ -261,6 +241,7 @@ const Index = () => {
           </span>
           <button
             type="button"
+            className="primary-button"
             onClick={() => {
               console.log('click')
             }}
