@@ -20,8 +20,8 @@ const GlobalStyle = createGlobalStyle`
     .primary-button{
       max-width: 270px;
       background: linear-gradient(
-        ${({ theme }) => theme.colors.primary},
-        ${({ theme }) => theme.colors.secondary}
+        #055556,
+        #2E7E80
       );
       border: none;
       border-radius: 5px;
@@ -33,8 +33,8 @@ const GlobalStyle = createGlobalStyle`
       transition: background 0.3s ease-in-out;
       &:active {
         background: linear-gradient(
-          ${({ theme }) => theme.colors.secondary},
-          ${({ theme }) => theme.colors.primary}
+          #2E7E80,
+          #055556
         );
       }
     }
