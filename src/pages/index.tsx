@@ -443,7 +443,7 @@ const Index = (): JSX.Element => {
     autoplay: true,
   }
   return (
-    <div>
+    <div style={{ overflow: 'hidden' }}>
       <Header />
       <FirstSection>
         <img src="/home/MOEDAS.png" alt="" className="coins" />

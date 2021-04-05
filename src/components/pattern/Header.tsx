@@ -78,7 +78,7 @@ const Container = styled.nav`
       margin-right: 1rem;
       width: 80%;
       position: relative;
-      overflow: hidden !important;
+
       z-index: 1;
 
       -webkit-user-select: none;
@@ -149,7 +149,7 @@ const Container = styled.nav`
       padding: 50px;
       padding-top: 4rem;
       height: unset;
-      overflow: hidden !important;
+      overflow: hidden;
       background: #ededed;
       list-style-type: none;
       -webkit-font-smoothing: antialiased;
