@@ -47,7 +47,7 @@ const Container = styled.footer`
       align-items: center;
       justify-content: center;
       font-size: 1.3rem;
-      margin-bottom:1rem;
+      margin-bottom: 1rem;
     }
   }
 
@@ -81,6 +81,19 @@ const Container = styled.footer`
   #web {
     grid-area: web;
     margin: auto;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'social'
+      'map'
+      'logo'
+      'web';
+    #web {
+      margin: auto;
+      text-align: center;
+    }
   }
 `
 

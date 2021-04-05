@@ -25,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
       );
       border: none;
       border-radius: 5px;
+      cursor:pointer;
       padding: 0.5rem;
       font-family: inherit;
       font-weight: bold;
