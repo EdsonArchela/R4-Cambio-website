@@ -183,7 +183,7 @@ const ThirdSection = styled.section`
     }
   }
 
-  .firstBlock .mobile {
+  .mobile {
     display: none;
   }
 
