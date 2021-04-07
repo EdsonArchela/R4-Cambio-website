@@ -214,6 +214,7 @@ const ThirdSection = styled.section`
 
     .firstBlock {
       width: 80%;
+      justify-content: center;
       h2 {
         font-size: 20px;
       }
