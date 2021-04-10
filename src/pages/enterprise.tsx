@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
 import Slider from 'react-slick'
@@ -10,6 +10,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import Header from '../components/pattern/Header'
 import Footer from '../components/pattern/Footer'
 import Slide from '../components/Carousel/Slide'
+import CustomArrow from '../components/CustomArrow'
 
 const Main = styled.main`
   background-image: url('/enterprise/suit.png');
@@ -40,6 +41,13 @@ const Main = styled.main`
       font-size: 24px;
     }
   }
+  @media (max-width: 768px) {
+    height: 500px;
+    .action {
+      top: 1rem;
+      left: 1rem;
+    }
+  }
 `
 
 const Bar = styled.div`
@@ -65,35 +73,20 @@ const FirstSection = styled.section`
     width: 80%;
     margin: 2rem auto;
   }
+  @media (max-width: 768px) {
+    h2 {
+      text-align: center;
+    }
+    .slick-list {
+      width: 80%;
+    }
+    .slick-slider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 `
-const SampleNextArrow = (props) => {
-  const { className, style, onClick } = props
-  return (
-    <button
-      type="button"
-      className={className}
-      style={{ ...style, display: 'block', height: '68px' }}
-      onClick={onClick}
-    >
-      <img src="/assets/carousel/rightarrow.svg" alt="next" />
-    </button>
-  )
-}
-
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props
-  return (
-    <button
-      type="button"
-      className={className}
-      style={{ ...style, display: 'block', height: '68px' }}
-      onClick={onClick}
-    >
-      <img src="/assets/carousel/leftarrow.svg" alt="previous" />
-    </button>
-  )
-}
-
 const SecondSection = styled.section`
   max-width: 1420px;
   margin: 2rem auto;
@@ -146,10 +139,43 @@ const SecondSection = styled.section`
       font-weight: bold;
     }
   }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    & > * {
+      flex: 1;
+      margin: 1rem;
+    }
+
+    .main {
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .item {
+        flex: 1;
+        width: 100%;
+        .arrow-right {
+          border-top: 1rem solid transparent;
+          border-bottom: 1rem solid transparent;
+
+          border-left: 16px solid ${({ theme }) => theme.colors.primary};
+
+          padding-left: 4rem;
+          font-size: 1rem;
+        }
+      }
+    }
+    .action {
+      p {
+        font-size: 1.2rem;
+      }
+    }
+  }
 `
 
 const ThirdSection = styled.section`
-  max-width: 1620px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -159,6 +185,10 @@ const ThirdSection = styled.section`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  .content {
+    max-width: 1224px;
+  }
 
   .title {
     margin-top: 86px;
@@ -185,20 +215,39 @@ const ThirdSection = styled.section`
 
   .carousel {
     width: 80%;
+    box-sizing: border-box;
     margin: 2rem auto;
     margin-bottom: 83px;
+    .slick-next:before {
+      content: '';
+    }
+    .slick-prev:before {
+      content: '';
+    }
+  }
+  @media (max-width: 768px) {
+    .content {
+      max-width: 100%;
+      .title {
+        flex-direction: column;
+        img {
+          padding-right: 0;
+        }
+      }
+    }
   }
 `
 const WhiteSlide = styled.div`
   background: rgba(255, 255, 255, 0.8);
+  box-sizing: border-box;
   display: flex !important;
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
-  width: 265px !important;
+  width: 335px !important;
   height: 532px;
   color: ${({ theme }) => theme.colors.primary};
-  padding: 3rem 2rem;
+  padding: 3rem 31px;
   margin: auto;
   img {
     width: 88px;
@@ -213,10 +262,13 @@ const WhiteSlide = styled.div`
     font-size: 22px;
     text-align: center;
   }
+  @media (max-width: 768px) {
+    width: 100% !important;
+  }
 `
 
 const FourthSection = styled.section`
-  width: 1220px;
+  max-width: 1224px;
   margin: 5rem auto;
   padding: 2rem 1rem;
   display: flex;
@@ -256,20 +308,49 @@ const FourthSection = styled.section`
     align-items: center;
     justify-content: center;
   }
+  @media (max-width: 768px) {
+    width: 100%;
+    box-sizing: border-box;
+    h2 {
+      font-size: 30px;
+      max-width: 80%;
+    }
+    img {
+      width: 80%;
+      height: unset;
+      margin-right: 0;
+    }
+    .content {
+      width: 80%;
+      flex-direction: column;
+    }
+  }
 `
 
-const enterprise = (): JSX.Element => {
-  const sliderSettings = {
+const Enterprise: React.FC = () => {
+  const [width, setWidth] = React.useState(0)
+  const [sliderSettings, setSliderSettings] = useState({
     dots: true,
     infinite: false,
     slidesToShow: 3,
     slidesToScroll: 1,
+    nextArrow: <CustomArrow direction="next" />,
+    prevArrow: <CustomArrow direction="prev" />,
+  })
 
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-  }
+  useEffect(() => {
+    if (window !== undefined) {
+      window.addEventListener('resize', () => setWidth(window.innerWidth))
+      if (window.innerWidth > 1024) setSliderSettings((prev) => ({ ...prev, slidesToShow: 3 }))
+
+      if (window.innerWidth <= 1024) setSliderSettings((prev) => ({ ...prev, slidesToShow: 2 }))
+      if (window.innerWidth <= 768)
+        setSliderSettings((prev) => ({ ...prev, slidesToShow: 1, arrows: false, autoplay: true }))
+    }
+  }, [width])
+
   return (
-    <div>
+    <div style={{ overflow: 'hidden' }}>
       <Header />
       <Main>
         <div className="action">
@@ -334,57 +415,59 @@ const enterprise = (): JSX.Element => {
         </div>
       </SecondSection>
       <ThirdSection>
-        <div className="title">
-          <img src="/enterprise/agro-icon.png" alt="Agro" />
-          <div className="">
-            <h2>O poder do câmbio no agronegócio!</h2>
-            <p>As melhores soluções em câmbio para o agronegócio.</p>
-            <p>Segurança nas operações e lucro recorrente para sua empresa.</p>
+        <div className="content">
+          <div className="title">
+            <img src="/enterprise/agro-icon.png" alt="Agro" />
+            <div className="">
+              <h2>O poder do câmbio no agronegócio!</h2>
+              <p>As melhores soluções em câmbio para o agronegócio.</p>
+              <p>Segurança nas operações e lucro recorrente para sua empresa.</p>
+            </div>
           </div>
-        </div>
-        <div className="carousel">
-          <Slider {...sliderSettings}>
-            <WhiteSlide>
-              <img src="/enterprise/export.svg" alt="Exportação" />
-              <h2>Recebimentos de exportações</h2>
-              <p>
-                As melhores soluções em câmbio para o agronegócio. Segurança nas operações e lucro
-                recorrente para sua empresa.
-              </p>
-            </WhiteSlide>
-            <WhiteSlide>
-              <img src="/enterprise/hedge.svg" alt="Hedge" />
-              <h2>Operações de Hedge Cambial</h2>
-              <p>
-                As melhores soluções em câmbio para o agronegócio. Segurança nas operações e lucro
-                recorrente para sua empresa.
-              </p>
-            </WhiteSlide>
-            <WhiteSlide>
-              <img src="/enterprise/marginCall.svg" alt="Margin Call" />
-              <h2>Pagamentos e recebimentos de Margin Call</h2>
-              <p>
-                As melhores soluções em câmbio para o agronegócio. Segurança nas operações e lucro
-                recorrente para sua empresa.
-              </p>
-            </WhiteSlide>
-            <WhiteSlide>
-              <img src="/enterprise/tradeFinance.svg" alt="Trade Finance" />
-              <h2>Trade Finance</h2>
-              <p>
-                As melhores soluções em câmbio para o agronegócio. Segurança nas operações e lucro
-                recorrente para sua empresa.
-              </p>
-            </WhiteSlide>
-            <WhiteSlide>
-              <img src="/enterprise/accAce.svg" alt="Contratação" />
-              <h2>Contratação ACC, ACE</h2>
-              <p>
-                As melhores soluções em câmbio para o agronegócio. Segurança nas operações e lucro
-                recorrente para sua empresa.
-              </p>
-            </WhiteSlide>
-          </Slider>
+          <div className="carousel">
+            <Slider {...sliderSettings}>
+              <WhiteSlide>
+                <img src="/enterprise/export.svg" alt="Exportação" />
+                <h2>Recebimentos de exportações</h2>
+                <p>
+                  As melhores soluções em câmbio para o agronegócio. Segurança nas operações e lucro
+                  recorrente para sua empresa.
+                </p>
+              </WhiteSlide>
+              <WhiteSlide>
+                <img src="/enterprise/hedge.svg" alt="Hedge" />
+                <h2>Operações de Hedge Cambial</h2>
+                <p>
+                  As melhores soluções em câmbio para o agronegócio. Segurança nas operações e lucro
+                  recorrente para sua empresa.
+                </p>
+              </WhiteSlide>
+              <WhiteSlide>
+                <img src="/enterprise/marginCall.svg" alt="Margin Call" />
+                <h2>Pagamentos e recebimentos de Margin Call</h2>
+                <p>
+                  As melhores soluções em câmbio para o agronegócio. Segurança nas operações e lucro
+                  recorrente para sua empresa.
+                </p>
+              </WhiteSlide>
+              <WhiteSlide>
+                <img src="/enterprise/tradeFinance.svg" alt="Trade Finance" />
+                <h2>Trade Finance</h2>
+                <p>
+                  As melhores soluções em câmbio para o agronegócio. Segurança nas operações e lucro
+                  recorrente para sua empresa.
+                </p>
+              </WhiteSlide>
+              <WhiteSlide>
+                <img src="/enterprise/accAce.svg" alt="Contratação" />
+                <h2>Contratação ACC, ACE</h2>
+                <p>
+                  As melhores soluções em câmbio para o agronegócio. Segurança nas operações e lucro
+                  recorrente para sua empresa.
+                </p>
+              </WhiteSlide>
+            </Slider>
+          </div>
         </div>
       </ThirdSection>
       <Bar />
@@ -422,4 +505,4 @@ const enterprise = (): JSX.Element => {
   )
 }
 
-export default enterprise
+export default Enterprise

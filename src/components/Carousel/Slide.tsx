@@ -26,6 +26,12 @@ const CardCSS = styled.div`
       margin-bottom: 0.5rem;
     }
   }
+  @media (max-width: 480px) {
+    width: 100%;
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
 `
 const Slide = ({ content }: { content: { image: string; title: string } }): JSX.Element => (
   <CardCSS>

@@ -181,7 +181,7 @@ const Container = styled.nav`
   }
 `
 
-const Header = () => {
+const Header: React.FC = () => {
   const { asPath } = useRouter()
   return (
     <Container>

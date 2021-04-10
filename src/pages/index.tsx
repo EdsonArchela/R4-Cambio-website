@@ -434,6 +434,15 @@ const PickCard = styled.div<{ img: string }>`
     }
   }
 `
+const Bar = styled.div`
+  margin: 0;
+  height: 11px;
+  width: 100%;
+  background: linear-gradient(
+    ${({ theme }) => theme.colors.primary},
+    ${({ theme }) => theme.colors.quaternary}
+  );
+`
 
 const Index = (): JSX.Element => {
   const sliderSettings = {
@@ -467,6 +476,7 @@ const Index = (): JSX.Element => {
           </button>
         </div>
       </FirstSection>
+      <Bar />
       <SecondSection>
         <div className="firstBlock">
           <h2>As melhores oportunidades de câmbio em um só lugar!</h2>
