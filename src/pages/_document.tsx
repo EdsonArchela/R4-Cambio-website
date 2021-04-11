@@ -9,7 +9,7 @@ export default class MyDocument extends Document {
   ): Promise<{
     styles: JSX.Element
     html: string
-    head?: JSX.Element[]
+    // head?: JSX.Element[]
   }> {
     const sheet = new ServerStyleSheet()
     const originalRenderPage = ctx.renderPage
@@ -29,6 +29,7 @@ export default class MyDocument extends Document {
             {sheet.getStyleElement()}
           </>
         ),
+        // head: undefined,
       }
     } finally {
       sheet.seal()
