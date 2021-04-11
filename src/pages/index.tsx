@@ -523,7 +523,7 @@ const Index = (): JSX.Element => {
             </PickCard>
           </div>
           <div className="firstBlock mobile">
-            <Slider {...sliderSettings} style={{ width: '100%' }}>
+            <Slider {...sliderSettings}>
               <PickCard img="/home/building.png">
                 <h2>Entenda porque o dólar influência o mercado de câmbio!</h2>
               </PickCard>
