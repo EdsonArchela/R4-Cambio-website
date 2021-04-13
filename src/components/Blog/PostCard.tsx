@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { format } from 'date-fns'
 import pt from 'date-fns/locale/pt-BR'
 import { PostData } from '../../utils/loader'
-import { Tag } from './Tag'
+import Tag from './Tag'
 
 const PostCard: React.FC<{ post: PostData }> = (props) => {
   const { post } = props
@@ -88,8 +88,8 @@ const PostCard: React.FC<{ post: PostData }> = (props) => {
             </p>
           )}
           <p style={{ opacity: 0.6, textAlign: 'center', margin: '1rem 0px 0 0' }}>
-            {props.post.datePublished
-              ? format(new Date(props.post.datePublished), "dd 'de' MMMM, yyyy", { locale: pt })
+            {post.datePublished
+              ? format(new Date(post.datePublished), "dd 'de' MMMM, yyyy", { locale: pt })
               : ''}
           </p>
           <div style={{ flex: 1 }}> </div>
