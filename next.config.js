@@ -1,13 +1,14 @@
 module.exports = {
-    webpack(config) {
-      config.module.rules.push({
-        test: /\.svg$/,
-        issuer: {
-          test: /\.(js|ts)x?$/,
-        },
-        use: ['@svgr/webpack'],
-      });
-
-      return config;
-    },
-  };
+  trailingSlash: true,
+  webpack: function (config) {
+    config.module.rules.push({
+      test: /\.md$/,
+      use: 'raw-loader',
+    });
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '~': __dirname,
+    };
+    return config;
+  },
+};
