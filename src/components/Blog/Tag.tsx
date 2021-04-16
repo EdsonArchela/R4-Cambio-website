@@ -1,5 +1,7 @@
-import React from 'react';
-export const Tag: React.FC<{ tag: string }> = (props) => {
+import React from 'react'
+
+const Tag: React.FC<{ tag: string }> = (props) => {
+  const { tag } = props
   return (
     <div
       style={{
@@ -12,7 +14,8 @@ export const Tag: React.FC<{ tag: string }> = (props) => {
         boxShadow: '0px 1px 1px #00000030',
       }}
     >
-      {props.tag}
+      {tag}
     </div>
-  );
-};
+  )
+}
+export default Tag

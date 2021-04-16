@@ -72,6 +72,17 @@ const FirstSection = styled.section`
   .carousel {
     width: 80%;
     margin: 2rem auto;
+    .slick-arrow {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      height: 100%;
+      width: 35px;
+      &:before {
+        content: '';
+      }
+    }
   }
   @media (max-width: 768px) {
     h2 {
@@ -214,7 +225,7 @@ const ThirdSection = styled.section`
   }
 
   .carousel {
-    width: 80%;
+    width: 100%;
     box-sizing: border-box;
     margin: 2rem auto;
     margin-bottom: 83px;
@@ -223,6 +234,17 @@ const ThirdSection = styled.section`
     }
     .slick-prev:before {
       content: '';
+    }
+    .slick-arrow {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      height: 100%;
+      width: 35px;
+      &:before {
+        content: '';
+      }
     }
   }
   @media (max-width: 768px) {
