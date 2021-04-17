@@ -19,8 +19,6 @@ const Blog = ({ posts }: { posts: PostData[] }) => (
     </Head>
 
     <div style={sectionStyle}>
-      <h1>HELLO WORD</h1>
-      <h2>{posts.length}</h2>
       <div
         style={{
           display: 'grid',
