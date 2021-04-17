@@ -200,10 +200,8 @@ const Header: React.FC = () => {
           <li className={asPath === '/' ? 'active' : undefined}>
             <Link href="/">Home</Link>
           </li>
-          <li>
-            <Link href="/you" as="para-voce">
-              Para Você
-            </Link>
+          <li className={asPath === '/para-voce' ? 'active' : undefined}>
+            <Link href="/para-voce">Para Você</Link>
           </li>
           <li className={asPath === '/enterprise' ? 'active' : undefined}>
             <Link href="/enterprise">Para sua Empresa</Link>
