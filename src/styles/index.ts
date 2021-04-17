@@ -89,7 +89,7 @@ export const SecondSection = styled.section<{ isVisible: boolean }>`
     justify-content: space-between;
     flex: 1;
     max-width: 608px;
-    height: 620px;
+    height: 100%;
     overflow: hidden;
     &:first-child {
       margin-right: 2rem;
@@ -273,12 +273,13 @@ export const FourthSection = styled.section<{ isVisible: boolean }>`
       height: 384px;
     }
     h2 {
+      max-width: 536px;
       margin: 0;
       display: block;
       font-weight: bold;
-      font-size: ${({ theme }) => theme.textSizes.extra};
+      font-size: ${({ theme }) => theme.textSizes.large};
       color: ${({ theme }) => theme.colors.primary};
-      text-align: center;
+      text-align: justify;
     }
 
     .item {
@@ -290,10 +291,12 @@ export const FourthSection = styled.section<{ isVisible: boolean }>`
       img {
         width: 48px;
         height: 48px;
+        margin-right: 1rem;
       }
       p {
         color: ${({ theme }) => theme.colors.primary};
         font-size: ${({ theme }) => theme.textSizes.large};
+        text-align: left;
       }
     }
   }
@@ -363,7 +366,7 @@ export const FourthSection = styled.section<{ isVisible: boolean }>`
   }
 `
 
-export const GreenCard = styled.div`
+export const GreenCard = styled.button`
   background-color: ${({ theme }) => theme.colors.ternary};
   display: flex;
   flex-direction: column;
@@ -373,6 +376,8 @@ export const GreenCard = styled.div`
   color: ${({ theme }) => theme.colors.txtPrimary};
   padding: 2rem;
   border-radius: 8px;
+  border: none;
+  cursor: pointer;
 
   &:first-child {
     margin-bottom: 1.5rem;

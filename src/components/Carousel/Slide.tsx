@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
+import { useRouter } from 'next/dist/client/router'
 
 const CardCSS = styled.div`
   border-radius: 10px;
@@ -33,13 +34,27 @@ const CardCSS = styled.div`
     }
   }
 `
-const Slide = ({ content }: { content: { image: string; title: string } }): JSX.Element => (
-  <CardCSS>
-    <Image id="card-image" src={content.image} alt={content.title} width="335px" height="360px" />
-    <div className="description">
-      <h2>{content.title}</h2>
-      <p>saiba mais</p>
-    </div>
-  </CardCSS>
-)
+const Slide = ({
+  content,
+}: {
+  content: { image: string; title: string; slug: string }
+}): JSX.Element => {
+  const router = useRouter()
+  return (
+    <CardCSS>
+      <Image id="card-image" src={content.image} alt={content.title} width="335px" height="360px" />
+      <button
+        type="button"
+        className="description"
+        onClick={() => {
+          router.push(`/blog/${content.slug}`)
+        }}
+        style={{ background: 'transparent', border: 'none' }}
+      >
+        <h2>{content.title}</h2>
+        <p>saiba mais</p>
+      </button>
+    </CardCSS>
+  )
+}
 export default Slide

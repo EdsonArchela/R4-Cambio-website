@@ -7,6 +7,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
+import { useRouter } from 'next/dist/client/router'
 import {
   Bar,
   FirstSection,
@@ -20,6 +21,7 @@ import Slide from '../components/Carousel/Slide'
 import CustomArrow from '../components/CustomArrow'
 
 const Enterprise: React.FC = () => {
+  const route = useRouter()
   const [width, setWidth] = React.useState(0)
   const [sliderSettings, setSliderSettings] = useState({
     dots: true,
@@ -64,17 +66,27 @@ const Enterprise: React.FC = () => {
         <h2>Operações seguras para sua empresa!</h2>
         <div className="carousel">
           <Slider {...sliderSettings}>
-            <Slide content={{ image: '/enterprise/cambio-pronto.png', title: 'Câmbio Pronto' }} />
-
             <Slide
-              content={{ image: '/enterprise/cambio-futuro.png', title: 'Hedge e Câmbio Futuro' }}
+              content={{
+                image: '/enterprise/cambio-pronto.png',
+                title: 'Câmbio Pronto',
+                slug: 'cambio-pronto',
+              }}
             />
 
-            <Slide content={{ image: '/enterprise/ace.png', title: 'ACE' }} />
+            <Slide
+              content={{
+                image: '/enterprise/cambio-futuro.png',
+                title: 'Hedge e Câmbio Futuro',
+                slug: 'cambio-futuro',
+              }}
+            />
 
-            <Slide content={{ image: '/enterprise/acc.png', title: 'ACC' }} />
+            <Slide content={{ image: '/enterprise/ace.png', title: 'ACE', slug: 'ace' }} />
 
-            <Slide content={{ image: '/enterprise/finimp.png', title: 'FINIMP' }} />
+            <Slide content={{ image: '/enterprise/acc.png', title: 'ACC', slug: 'acc' }} />
+
+            <Slide content={{ image: '/enterprise/finimp.png', title: 'FINIMP', slug: 'finimp' }} />
           </Slider>
         </div>
       </FirstSection>
@@ -83,24 +95,35 @@ const Enterprise: React.FC = () => {
         <Image src="/enterprise/Mockup celular.png" alt="FINIMP" width="361px" height="707px" />
         <div className="main">
           <div className="item">
-            <div className="arrow-right">Modalidades</div>
+            <div className="arrow-right" />
+            <p>Modalidades</p>
           </div>
           <div className="item">
-            <div className="arrow-right">Requisitos</div>
+            <div className="arrow-right" />
+            <p>Requisitos</p>
           </div>
           <div className="item">
-            <div className="arrow-right">Prazos</div>
+            <div className="arrow-right" />
+            <p>Prazos</p>
           </div>
           <div className="item">
-            <div className="arrow-right">Tributação</div>
+            <div className="arrow-right" />
+            <p>Tributação</p>
           </div>
           <div className="item">
-            <div className="arrow-right">Vantagens</div>
+            <div className="arrow-right" />
+            <p>Vantagens</p>
           </div>
         </div>
         <div className="action">
           <p>Consulte agora um dos nossos especialistas. Vamos esclarecer todas as suas dúvidas.</p>
-          <button type="button" className="primary-button">
+          <button
+            type="button"
+            className="primary-button"
+            onClick={() => {
+              route.push('/contact')
+            }}
+          >
             consultar especialista
           </button>
         </div>
@@ -187,7 +210,14 @@ const Enterprise: React.FC = () => {
               especialistas.
             </p>
 
-            <button type="button">consultar especialista</button>
+            <button
+              type="button"
+              onClick={() => {
+                route.push('/contact')
+              }}
+            >
+              consultar especialista
+            </button>
           </div>
         </div>
       </FourthSection>
