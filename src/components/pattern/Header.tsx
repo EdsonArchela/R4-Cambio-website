@@ -185,6 +185,7 @@ const Container = styled.nav`
 
 const Header: React.FC = () => {
   const { asPath } = useRouter()
+  console.log('ROUTE',asPath)
   return (
     <Container>
       <Image src="/assets/logo.svg" alt="R4 Câmbio" width={152} height={70} />
