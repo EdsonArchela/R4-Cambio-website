@@ -93,7 +93,7 @@ export const Main = styled.main`
       p {
         position: relative;
         top: 150px;
-
+        max-width: 300px;
         font-weight: normal;
         font-size: 14px;
         line-height: 16px;
@@ -375,7 +375,7 @@ export const SecondSection = styled.section`
   }
 
   .block {
-    margin-top: 106px;
+    /* margin-top: 106px; */
     position: relative;
     height: 1000px;
     flex-direction: column;
@@ -426,7 +426,7 @@ export const SecondSection = styled.section`
     }
 
     .block {
-      margin-top: 106px;
+      /* margin-top: 106px; */
       position: relative;
       height: 475px;
       flex-direction: column;
