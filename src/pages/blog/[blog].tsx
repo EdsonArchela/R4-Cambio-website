@@ -27,7 +27,8 @@ export const getStaticProps = async ({
 }): Promise<{ props: { post: PostData; posts: PostData[] } }> => {
   const post = await loadPost(`${params.blog}.md`)
   const posts = await loadBlogPosts()
-  return { props: { post, posts } }
+  const filteredposts = posts.filter((p) => p.title !== post.title)
+  return { props: { post, posts: filteredposts } }
 }
 
 export default Post

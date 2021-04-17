@@ -16,7 +16,7 @@ const SocialShare: React.FC<{ post: PostData; style: any }> = ({ post, style }) 
   return (
     <div className="container" style={{ ...style }}>
       <FacebookShareButton
-        url={`http://archelainvest.com.br/${post.path}`}
+        url={`http://r4cambio.com.br/${post.path}`}
         quote={post.title}
         className="Demo__some-network__share-button"
       >
@@ -24,7 +24,7 @@ const SocialShare: React.FC<{ post: PostData; style: any }> = ({ post, style }) 
       </FacebookShareButton>
 
       <TwitterShareButton
-        url={`http://archelainvest.com.br/${post.path}`}
+        url={`http://r4cambio.com.br/${post.path}`}
         title={post.title}
         className="Demo__some-network__share-button"
         style={{ marginLeft: '0.5rem' }}
@@ -32,15 +32,15 @@ const SocialShare: React.FC<{ post: PostData; style: any }> = ({ post, style }) 
         <TwitterIcon size={size} round />
       </TwitterShareButton>
       <PinterestShareButton
-        url={`http://archelainvest.com.br/${post.path}`}
-        media={`archelainvest.com.br/${`http://archelainvest.com.br/${post.thumbnailPhoto}`}`}
+        url={`http://r4cambio.com.br/${post.path}`}
+        media={`r4cambio.com.br/${`http://r4cambio.com.br/${post.thumbnailPhoto}`}`}
         className="Demo__some-network__share-button"
         style={{ marginLeft: '0.5rem' }}
       >
         <PinterestIcon size={size} round />
       </PinterestShareButton>
       <WhatsappShareButton
-        url={`http://archelainvest.com.br/${post.path}`}
+        url={`http://r4cambio.com.br/${post.path}`}
         title={post.title}
         style={{ marginLeft: '0.5rem' }}
       >

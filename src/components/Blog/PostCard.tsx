@@ -18,6 +18,7 @@ const PostCard: React.FC<{ post: PostData }> = (props) => {
         flexDirection: 'row',
         justifyContent: 'center',
         height: '400px',
+        width: '300px',
       }}
     >
       <div
@@ -40,7 +41,7 @@ const PostCard: React.FC<{ post: PostData }> = (props) => {
         }}
       >
         {post.thumbnailPhoto && (
-          <Image src={post.thumbnailPhoto} layout="responsive" width="400" height="400" />
+          <Image src={post.thumbnailPhoto} layout="responsive" width="500" height="400" />
           // <div
           //   style={{
           //     background: `url(${post.thumbnailPhoto}) no-repeat center center`,

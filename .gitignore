@@ -41,3 +41,4 @@ firebase.json
 
 .editorconfig
 yarn.lock
+.env
