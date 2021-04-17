@@ -5,14 +5,13 @@ export default function contact(
   request: NextApiRequest,
   response: NextApiResponse
 ): NextApiResponse {
-  console.log(process.env.ZOHO_PWS)
   const transport = createTransport({
     host: 'smtp.zoho.com',
     port: 465,
     secure: true,
     auth: {
       user: 'edsonarchela@r4cambio.com.br',
-      pass: 'zfmVcwvYFPps',
+      pass: process.env.ZOHO_PWS,
     },
   })
 
