@@ -25,9 +25,14 @@ export const Main = styled.main`
   }
 
   .textBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 200%;
     position: relative;
     top: 150px;
-    left: 250px;
+    left: 25%;
     color: ${({ theme }) => theme.colors.primary};
 
     h2 {
@@ -59,8 +64,8 @@ export const Main = styled.main`
     padding-right: 18px;
     padding-bottom: 7px;
 
-    margin-left: 250px;
-    margin-right: auto;
+    display: block;
+    margin-left: 12.5%;
 
     font-weight: bold;
     font-size: 24px;
@@ -82,28 +87,39 @@ export const Main = styled.main`
     }
 
     .textBlock {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      width: 100%;
+
       position: relative;
       top: 50px;
-      left: 40px;
 
       h2 {
         font-size: 20px;
       }
+    }
 
-      p {
-        position: relative;
-        top: 150px;
-        max-width: 300px;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 16px;
-        text-align: center;
-      }
+    p {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+
+      position: relative;
+      max-width: 300px;
+
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: 0em;
+      text-align: center;
+      color: ${({ theme }) => theme.colors.primary};
     }
 
     .primary-button {
       position: relative;
-      top: 70px;
+      top: 20px;
 
       display: block;
       margin-left: auto;
@@ -258,7 +274,7 @@ export const FirstSection = styled.section`
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1360px) {
     height: 500px;
     margin-top: 120px;
 
@@ -417,7 +433,7 @@ export const SecondSection = styled.section`
   }
 
   @media (max-width: 768px) {
-    background-position: -200px;
+    background-position: -100px;
     height: 596px;
 
     .gradient {
@@ -426,7 +442,6 @@ export const SecondSection = styled.section`
     }
 
     .block {
-      /* margin-top: 106px; */
       position: relative;
       height: 475px;
       flex-direction: column;
@@ -552,6 +567,12 @@ export const FirstFloating = styled.section`
       text-align: center;
 
       color: #fafafa;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .box {
+      width: 90%;
     }
   }
 
@@ -700,7 +721,7 @@ export const ThirdSection = styled.section`
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     flex-direction: column;
     top: -75px;
 
@@ -897,18 +918,14 @@ export const ForthSection = styled.section`
 export const SecondFloating = styled.section`
   position: relative;
   top: -100px;
-  margin-left: auto;
-  margin-right: auto;
 
-  width: 1212px;
+  width: 90%;
   height: 512px;
 
   .test {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: block;
+    margin-left: auto;
 
     width: 404px;
     height: 512px;
@@ -920,7 +937,7 @@ export const SecondFloating = styled.section`
       align-items: center;
       justify-content: center;
 
-      width: 400px;
+      width: 90%;
       height: 508px;
 
       background: ${({ theme }) => theme.colors.background};
