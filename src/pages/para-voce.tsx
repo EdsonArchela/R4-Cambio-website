@@ -5,8 +5,6 @@ import React, { useEffect, useState } from 'react'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import Slider from 'react-slick'
-import Header from '../../components/pattern/Header'
-import Footer from '../../components/pattern/Footer'
 import {
   Main,
   Bar,
@@ -17,8 +15,8 @@ import {
   FirstFloating,
   ForthSection,
   SecondFloating,
-} from './style'
-import CustomWhiteArrow from '../../components/CustomWhiteArrow'
+} from '../styles/para-voce'
+import CustomWhiteArrow from '../components/CustomWhiteArrow'
 
 const ParaVoce: React.FC = () => {
   const [width, setWidth] = React.useState(0)
@@ -64,8 +62,7 @@ const ParaVoce: React.FC = () => {
   }, [width])
 
   return (
-    <div style={{ overflow: 'hidden' }}>
-      <Header />
+    <>
       <Main>
         <div className="background">
           <div className="action">
@@ -371,8 +368,7 @@ const ParaVoce: React.FC = () => {
         </Slider>
       </SecondFloating>
       <Bar />
-      <Footer />
-    </div>
+    </>
   )
 }
 
