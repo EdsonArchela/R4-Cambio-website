@@ -203,13 +203,13 @@ const Header: React.FC = () => {
           <li className={asPath === '/para-voce/' ? 'active' : undefined}>
             <Link href="/para-voce">Para Você</Link>
           </li>
-          <li className={asPath === 'enterprise/' ? 'active' : undefined}>
+          <li className={asPath === '/enterprise/' ? 'active' : undefined}>
             <Link href="/enterprise">Para sua Empresa</Link>
           </li>
-          <li className={asPath === '/blog' ? 'active' : undefined}>
+          <li className={asPath === '/blog/' ? 'active' : undefined}>
             <Link href="/blog">Blog</Link>
           </li>
-          <li className={asPath === 'contact' ? 'active' : undefined}>
+          <li className={asPath === '/contact/' ? 'active' : undefined}>
             <Link href="/contact">Contato</Link>
           </li>
         </ul>
