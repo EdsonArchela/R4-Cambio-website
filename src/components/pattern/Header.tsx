@@ -10,6 +10,8 @@ const Container = styled.nav`
     ${({ theme }) => theme.colors.primary}
   );
 
+  width: 100vw;
+
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
 
@@ -207,7 +209,7 @@ const Header: React.FC = () => {
             <Link href="/enterprise">Para sua Empresa</Link>
           </li>
           <li>
-            <Link href="/about">Blog</Link>
+            <Link href="/blog">Blog</Link>
           </li>
           <li>
             <Link href="/contact">Contato</Link>

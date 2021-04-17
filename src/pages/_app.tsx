@@ -3,6 +3,8 @@ import React from 'react'
 import App from 'next/app'
 import Head from 'next/head'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
+import Header from '../components/pattern/Header'
+import Footer from '../components/pattern/Footer'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -52,6 +54,11 @@ const theme = {
     quaternary: '#10B1C0',
     txtPrimary: '#FFFCFC',
   },
+  textSizes: {
+    normal: '1rem',
+    large: '1.5rem',
+    extra: '2rem',
+  },
 }
 
 export default class MyApp extends App {
@@ -59,14 +66,29 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props
     return (
       <ThemeProvider theme={theme}>
-        <Head>
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&family=Roboto:wght@400;700&display=swap"
-            rel="stylesheet"
-          />
-        </Head>
-        <Component {...pageProps} />
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            minHeight: '100vh',
+            maxWidth: '100vw',
+            overflow: 'hidden',
+          }}
+        >
+          <Head>
+            <link rel="preconnect" href="https://fonts.gstatic.com" />
+            <link
+              href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&family=Roboto:wght@400;700&display=swap"
+              rel="stylesheet"
+            />
+          </Head>
+          <Header />
+          <Component {...pageProps} />
+          <div style={{ flex: 1 }} />
+          <Footer />
+        </div>
         <GlobalStyle />
       </ThemeProvider>
     )

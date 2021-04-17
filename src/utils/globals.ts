@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-namespace */
 export namespace config {
   export const yourName = 'Edson Archela'
   export const siteName = `R4 Câmbio`
@@ -7,6 +8,6 @@ export namespace config {
   export const twitterHandle = '@Edson_Archela'
   export const email = `edsonarchela@r4cambio.com.br`
   export const url = 'https://r4cambio.com.br'
-  export const accentColor = `#4fc2b4`
+  export const accentColor = `#055556`
   export const googleAnalyticsId = `` // e.g. 'UA-999999999-1'
 }

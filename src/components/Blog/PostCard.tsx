@@ -40,7 +40,7 @@ const PostCard: React.FC<{ post: PostData }> = (props) => {
         }}
       >
         {post.thumbnailPhoto && (
-          <Image src={post.thumbnailPhoto} layout="responsive" width="600" height="300" />
+          <Image src={post.thumbnailPhoto} layout="responsive" width="400" height="400" />
           // <div
           //   style={{
           //     background: `url(${post.thumbnailPhoto}) no-repeat center center`,

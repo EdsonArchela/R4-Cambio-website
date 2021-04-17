@@ -1,3 +1,4 @@
+import React from 'react'
 import Head from 'next/head'
 import { loadBlogPosts, PostData } from '../utils/loader'
 import PostCard from '../components/Blog/PostCard'
@@ -10,7 +11,7 @@ const sectionStyle = {
   alignItems: 'center',
 } as const
 
-const Blog = (props: { posts: PostData[] }) => (
+const Blog = ({ posts }: { posts: PostData[] }) => (
   <div style={{ width: '100%', maxWidth: 1200 }}>
     <Head>
       <title>R4 Câmbio - Artigos</title>
@@ -18,9 +19,8 @@ const Blog = (props: { posts: PostData[] }) => (
     </Head>
 
     <div style={sectionStyle}>
-      <h1>HELLO WORD
-      </h1>
-      <h2>{props.posts.length}</h2>
+      <h1>HELLO WORD</h1>
+      <h2>{posts.length}</h2>
       <div
         style={{
           display: 'grid',
@@ -31,8 +31,8 @@ const Blog = (props: { posts: PostData[] }) => (
           padding: '0px 7vw',
         }}
       >
-        {props.posts.map((post, j) => {
-          return <PostCard post={post} key={j} />
+        {posts.map((post) => {
+          return <PostCard post={post} key={post.datePublished} />
         })}
       </div>
     </div>

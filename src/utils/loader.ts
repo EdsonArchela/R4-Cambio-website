@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import matter from 'gray-matter'
 import glob from 'glob'
 import { config } from './globals'
@@ -20,11 +21,6 @@ export type PostData = {
 }
 
 type RawFile = { path: string; contents: string }
-
-export const loadMarkdownFile = async (path: string): Promise<RawFile> => {
-  const mdFile = await import(`../md/${path}`)
-  return { path, contents: mdFile.default }
-}
 
 export const mdToPost = (file: RawFile): PostData => {
   const metadata = matter(file.contents)
@@ -53,6 +49,11 @@ export const mdToPost = (file: RawFile): PostData => {
   return post as PostData
 }
 
+export const loadMarkdownFile = async (path: string): Promise<RawFile> => {
+  const mdFile = await import(`../md/${path}`)
+  return { path: `blog/${path}`, contents: mdFile.default }
+}
+
 export const loadMarkdownFiles = async (path: string) => {
   const blogPaths = glob.sync(`./src/md/${path}`)
   const postDataList = await Promise.all(
@@ -60,8 +61,7 @@ export const loadMarkdownFiles = async (path: string) => {
       const modPath = blogPath.slice(blogPath.indexOf(`md/`) + 3)
       return loadMarkdownFile(`${modPath}`)
     })
-    )
-    console.log('DATA LIST', postDataList)
+  )
   return postDataList
 }
 
@@ -71,7 +71,7 @@ export const loadPost = async (path: string): Promise<PostData> => {
 }
 
 export const loadBlogPosts = async (): Promise<PostData[]> => {
-  return await (await loadMarkdownFiles(`*.md`))
+  return (await loadMarkdownFiles(`*.md`))
     .map(mdToPost)
     .filter((p) => p.published)
     .sort((a, b) => (b.datePublished || 0) - (a.datePublished || 0))

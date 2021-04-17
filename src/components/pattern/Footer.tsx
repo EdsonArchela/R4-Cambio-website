@@ -8,14 +8,14 @@ const Container = styled.footer`
     ${({ theme }) => theme.colors.secondary},
     ${({ theme }) => theme.colors.primary}
   );
-
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
     'logo social map'
     'web web web';
 
-  padding: 2rem 1rem 1rem 0;
+  padding: 1rem 1rem 1rem 0;
   color: ${({ theme }) => theme.colors.txtPrimary};
 
   #footer-logo {
@@ -31,22 +31,23 @@ const Container = styled.footer`
     justify-content: center;
     h2 {
       text-align: center;
+      font-size: ${({ theme }) => theme.textSizes.normal};
     }
     .social-icons {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 50%;
+      width: 25%;
       img {
-        width: 48px;
-        height: 48px;
+        width: 24px;
+        height: 24px;
       }
     }
     .phone {
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
+      font-size: ${({ theme }) => theme.textSizes.normal};
       margin-bottom: 1rem;
     }
   }
@@ -57,7 +58,7 @@ const Container = styled.footer`
     align-items: center;
     justify-content: center;
     h2 {
-      margin-right: 1rem;
+      margin-right: ${({ theme }) => theme.textSizes.normal};
     }
     ul {
       border-left: 2px solid white;
