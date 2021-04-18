@@ -19,6 +19,7 @@ import React from 'react'
 const Container = styled.div`
   width: 100%;
   height: 100%;
+  margin-bottom: 1rem;
   .contact {
     display: flex;
     align-items: flex-end;
@@ -30,6 +31,7 @@ const Container = styled.div`
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      margin: auto;
       flex: 1;
       h1 {
         color: ${({ theme }) => theme.colors.primary};
@@ -179,7 +181,9 @@ const Contact = () => {
                 placeholder="Digite sua mensagem"
               />
             </FormControl>
-            <Button type="submit">Enviar</Button>
+            <Button variant="contained" color="primary" type="submit">
+              Enviar
+            </Button>
           </ThemeProvider>
         </form>
         <Image src="/assets/contact.png" alt="" width={783} height={556} />

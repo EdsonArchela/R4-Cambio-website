@@ -23,6 +23,7 @@ import CustomArrow from '../components/CustomArrow'
 const Enterprise: React.FC = () => {
   const route = useRouter()
   const [width, setWidth] = React.useState(0)
+  const [mobile, setMobile] = React.useState(false);
   const [sliderSettings, setSliderSettings] = useState({
     dots: true,
     infinite: false,
@@ -35,33 +36,60 @@ const Enterprise: React.FC = () => {
   useEffect(() => {
     if (window !== undefined) {
       window.addEventListener('resize', () => setWidth(window.innerWidth))
-      if (window.innerWidth > 1024) setSliderSettings((prev) => ({ ...prev, slidesToShow: 3 }))
+      if (window.innerWidth > 1024) {
+        setMobile(false)
+        setSliderSettings((prev) => ({ ...prev, slidesToShow: 3 }))
+      }
 
-      if (window.innerWidth <= 1024) setSliderSettings((prev) => ({ ...prev, slidesToShow: 2 }))
-      if (window.innerWidth <= 768)
+      if (window.innerWidth <= 1024) {
+        setMobile(false)
+        setSliderSettings((prev) => ({ ...prev, slidesToShow: 2 }))
+      }
+      if (window.innerWidth <= 768) {
+        setMobile(true)
         setSliderSettings((prev) => ({ ...prev, slidesToShow: 1, arrows: false, autoplay: true }))
+      }
     }
   }, [width])
 
   return (
     <>
       <Main>
-        <div className="action">
-          <h2>
-            Soluções
-            <br />
-            Corporativas
-          </h2>
-          <p>
-            Tudo que sua empresa procura de uma forma simplificada com resultados comprovados. Nunca
-            foi tão fácil operar no mercado de câmbio.
-          </p>
-          <button type="button" className="primary-button">
+        <div className="background">
+          <div className="action">
+            <div className="textBlock">
+              <h2>
+                Soluções
+                <br />
+                Corporativas
+              </h2>
+              {!mobile && (
+                <p>
+                  Tudo que sua empresa procura de uma forma simplificada com resultados comprovados.
+                  Nunca foi tão fácil operar no mercado de câmbio.
+                </p>
+              )}
+            </div>
+          </div>
+          {mobile && (
+            <p>
+              Tudo que sua empresa procura de uma forma simplificada com resultados comprovados.
+              Nunca foi tão fácil operar no mercado de câmbio.
+            </p>
+          )}
+          <button
+            type="button"
+            className="primary-button"
+            onClick={() => {
+              console.log('Gostaria de saber mais')
+            }}
+          >
             QUERO SABER MAIS
           </button>
         </div>
+        <Bar />
       </Main>
-      <Bar />
+      {mobile && <Bar />}
       <FirstSection>
         <h2>Operações seguras para sua empresa!</h2>
         <div className="carousel">

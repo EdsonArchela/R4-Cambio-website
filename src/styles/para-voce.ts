@@ -937,6 +937,8 @@ export const SecondFloating = styled.section`
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
 
       width: 90%;
       height: 508px;
