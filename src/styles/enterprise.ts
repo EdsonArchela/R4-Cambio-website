@@ -105,23 +105,25 @@ export const SecondSection = styled.section`
   .main {
     .item {
       border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
-      padding: 1rem;
+      padding: 0.5rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      color: ${({ theme }) => theme.colors.primary};
+      font-size: ${({ theme }) => theme.textSizes.large};
+      margin: 2rem 0;
+      p {
+        margin: 0;
+      }
       .arrow-right {
         width: 0;
         height: 0;
-        border-top: 25px solid transparent;
-        border-bottom: 25px solid transparent;
+        border-top: 16px solid transparent;
+        border-bottom: 16px solid transparent;
 
         border-left: 16px solid ${({ theme }) => theme.colors.primary};
 
-        padding-left: 5rem;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        color: ${({ theme }) => theme.colors.primary};
-        font-size: ${({ theme }) => theme.textSizes.large};
+        padding-left: 1rem;
       }
     }
   }
@@ -157,20 +159,21 @@ export const SecondSection = styled.section`
       .item {
         flex: 1;
         width: 100%;
+
         .arrow-right {
           border-top: 1rem solid transparent;
           border-bottom: 1rem solid transparent;
 
           border-left: 16px solid ${({ theme }) => theme.colors.primary};
 
-          padding-left: 4rem;
-          font-size: ${({ theme }) => theme.textSizes.normal};
+          padding-left: 1rem;
         }
       }
     }
     .action {
       p {
-        font-size: ${({ theme }) => theme.textSizes.normal};
+        text-align: center;
+        font-size: ${({ theme }) => theme.textSizes.large};
       }
     }
   }
@@ -315,6 +318,7 @@ export const FourthSection = styled.section`
     font-size: ${({ theme }) => theme.textSizes.large};
     font-weight: bold;
     padding: 0.5rem 4rem;
+    cursor: pointer;
   }
 
   .content {

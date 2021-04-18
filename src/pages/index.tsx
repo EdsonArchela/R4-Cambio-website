@@ -5,6 +5,7 @@ import VisibilitySensor from 'react-visibility-sensor'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import { useRouter } from 'next/dist/client/router'
 import {
   FirstSection,
   Bar,
@@ -17,6 +18,8 @@ import {
 } from '../styles/index'
 
 const Index = (): JSX.Element => {
+  const route = useRouter()
+
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -46,7 +49,7 @@ const Index = (): JSX.Element => {
             type="button"
             className="primary-button"
             onClick={() => {
-              console.log('click')
+              route.push('/contact')
             }}
           >
             Eu quero
@@ -63,7 +66,11 @@ const Index = (): JSX.Element => {
                 <img src="/home/main.png" alt="top of the world" id="topOfWorldImg" />
               </div>
               <div className="firstBlock right">
-                <GreenCard>
+                <GreenCard
+                  onClick={() => {
+                    route.push('/enterprise')
+                  }}
+                >
                   <div className="title">
                     <img src="/home/empresa.svg" alt="Empresa" />
                     <h2>PARA SUA EMPRESA</h2>
@@ -73,7 +80,11 @@ const Index = (): JSX.Element => {
                     exportações, trade finance e pagamentos.
                   </p>
                 </GreenCard>
-                <GreenCard>
+                <GreenCard
+                  onClick={() => {
+                    route.push('/para-voce')
+                  }}
+                >
                   <div className="title">
                     <img src="/home/homem.svg" alt="Você" />
                     <h2>PARA VOCÊ</h2>
@@ -151,7 +162,14 @@ const Index = (): JSX.Element => {
                   <img src="home/check.svg" alt="" />
                   <p>Assessoria personalizada</p>
                 </div>
-                <button type="button"> quero entrar e conhecer</button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    route.push('/contact')
+                  }}
+                >
+                  Quero Conhecer
+                </button>
               </div>
             </FourthSection>
           </>
