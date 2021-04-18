@@ -1,39 +1,130 @@
 import styled from 'styled-components'
 
 export const Main = styled.main`
-  background-image: url('/enterprise/suit.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  margin: 0;
   width: 100%;
-  height: 602px;
-  position: relative;
+  height: 605px;
+  display: flex;
+  flex-direction: column;
+
+  .background {
+    height: 594px;
+    background-image: url('/enterprise/suit.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+  }
+
   .action {
-    position: absolute;
-    top: 161px;
-    left: 177px;
-    color: ${({ theme }) => theme.colors.txtPrimary};
+    height: 594px;
+    width: 50%;
+  }
+
+  .textBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 200%;
+    position: relative;
+    top: 150px;
+    left: 25%;
+    color: ${({ theme }) => theme.colors.background};
 
     h2 {
-      font-size: ${({ theme }) => theme.textSizes.extra};
       font-weight: bold;
+      font-size: 48px;
+      margin-top: 0%;
+      margin-bottom: 0;
+      width: 100vw;
     }
 
     p {
-      max-width: 365px;
-      font-size: ${({ theme }) => theme.textSizes.large};
+      width: 300px;
+
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0em;
+      text-align: left;
+    }
+  }
+
+  .primary-button {
+    top: -125px;
+
+    position: relative;
+    border-radius: 10px;
+
+    padding-left: 18px;
+    padding-top: 7px;
+    padding-right: 18px;
+    padding-bottom: 7px;
+
+    display: block;
+    margin-left: 12.5%;
+
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: ${({ theme }) => theme.colors.background};
+  }
+
+  @media (max-width: 768px) {
+    height: 386px;
+    .background {
+      height: 219px;
+    }
+
+    .action {
+      height: 219px;
+      top: 1rem;
+      left: 1rem;
+    }
+
+    .textBlock {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      width: 100%;
+
+      position: relative;
+      top: 50px;
+
+      h2 {
+        font-size: 20px;
+        color: ${({ theme }) => theme.colors.background};
+      }
+    }
+
+    p {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+
+      position: relative;
+      top: 1rem;
+      max-width: 300px;
+
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: 0em;
+      text-align: center;
+      color: ${({ theme }) => theme.colors.primary};
     }
 
     .primary-button {
-      font-size: ${({ theme }) => theme.textSizes.large};
-    }
-  }
-  @media (max-width: 768px) {
-    height: 500px;
-    .action {
-      top: 1rem;
-      left: 1rem;
+      position: relative;
+      top: 20px;
+
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+
+      font-size: 16px;
+      line-height: 19px;
     }
   }
 `
@@ -50,6 +141,7 @@ export const Bar = styled.div`
 
 export const FirstSection = styled.section`
   max-width: 1620px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;

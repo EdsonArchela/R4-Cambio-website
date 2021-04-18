@@ -20,6 +20,7 @@ import CustomWhiteArrow from '../components/CustomWhiteArrow'
 
 const ParaVoce: React.FC = () => {
   const [width, setWidth] = React.useState(0)
+  const [mobile, setMobile] = React.useState(false);
   const [sliderSettings, setSliderSettings] = useState({
     dots: true,
     infinite: false,
@@ -40,15 +41,18 @@ const ParaVoce: React.FC = () => {
     if (window !== undefined) {
       window.addEventListener('resize', () => setWidth(window.innerWidth))
       if (window.innerWidth > 1024) {
+        setMobile(false)
         setSliderSettings((prev) => ({ ...prev, slidesToShow: 3 }))
         setArrowSliderSettings((prev) => ({ ...prev, slidesToShow: 4 }))
       }
 
       if (window.innerWidth <= 1024) {
+        setMobile(false)
         setSliderSettings((prev) => ({ ...prev, slidesToShow: 2 }))
         setArrowSliderSettings((prev) => ({ ...prev, slidesToShow: 2 }))
       }
       if (window.innerWidth <= 768) {
+        setMobile(true)
         setSliderSettings((prev) => ({ ...prev, slidesToShow: 1, arrows: false, autoplay: true }))
         setArrowSliderSettings((prev) => ({
           ...prev,
@@ -68,12 +72,20 @@ const ParaVoce: React.FC = () => {
           <div className="action">
             <div className="textBlock">
               <h2>L-I-B-E-R-D-A-D-E</h2>
-              <p>
-                O comportamento correto na hora de <b>investir</b> é a <b>chave</b> para operações
-                de <b>sucesso</b>!
-              </p>
+              {!mobile && (
+                <p>
+                  O comportamento correto na hora de <b>investir</b> é a <b>chave</b> para operações
+                  de <b>sucesso</b>!
+                </p>
+              )}
             </div>
           </div>
+          {mobile && (
+            <p>
+              O comportamento correto na hora de <b>investir</b> é a <b>chave</b> para operações de
+              <b> sucesso</b>!
+            </p>
+          )}
           <button
             type="button"
             className="primary-button"

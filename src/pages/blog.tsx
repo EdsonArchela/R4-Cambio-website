@@ -4,7 +4,6 @@ import { loadBlogPosts, PostData } from '../utils/loader'
 import PostCard from '../components/Blog/PostCard'
 
 const sectionStyle = {
-  width: '100%',
   padding: '100px 3vw',
   display: 'flex',
   flexDirection: 'column',

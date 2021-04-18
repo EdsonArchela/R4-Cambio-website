@@ -13,6 +13,14 @@ const Container = styled.div`
   width: 100%;
   margin: 0 5rem;
   overflow: hidden;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 350px;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 0px;
+  }
 `
 
 const BlogPost: React.FunctionComponent<{ post: PostData; otherPosts: PostData[] }> = ({
