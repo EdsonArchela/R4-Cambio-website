@@ -288,6 +288,12 @@ export const FourthSection = styled.section<{ isVisible: boolean }>`
       justify-content: flex-start;
       border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
       width: 70%;
+      transition: font-weight 0.2s ease-in-out;
+
+      &:hover {
+        font-weight: bold;
+      }
+
       img {
         width: 48px;
         height: 48px;
@@ -378,6 +384,12 @@ export const GreenCard = styled.button`
   border-radius: 8px;
   border: none;
   cursor: pointer;
+  position: relative;
+
+  &:hover {
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.4);
+    top: -6px;
+  }
 
   &:first-child {
     margin-bottom: 1.5rem;
@@ -432,9 +444,13 @@ export const PickCard = styled.div<{ img: string }>`
   max-width: 509px;
   height: 281px;
   padding: 0.5rem;
-  &:after {
-    content: '';
+  position: relative;
+
+  &:hover {
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.4);
+    top: -6px;
   }
+
   h2 {
     color: ${({ theme }) => theme.colors.txtPrimary};
     font-weight: bold;

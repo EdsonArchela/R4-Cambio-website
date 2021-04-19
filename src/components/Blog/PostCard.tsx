@@ -2,54 +2,50 @@ import React from 'react'
 import Image from 'next/image'
 import { format } from 'date-fns'
 import pt from 'date-fns/locale/pt-BR'
+import styled from 'styled-components'
 import { PostData } from '../../utils/loader'
 import Tag from './Tag'
+
+const Container = styled.a`
+  text-decoration: inherit;
+  color: inherit;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 400px;
+  width: 300px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: all 0.3s ease-out;
+  position: relative;
+
+  &:hover {
+    border: 2px solid #055556;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    top: -6px;
+    background-color: white;
+  }
+`
 
 const PostCard: React.FC<{ post: PostData }> = (props) => {
   const { post } = props
   return (
-    <a
-      href={`/${post.path}`}
-      style={{
-        textDecoration: 'inherit',
-        color: 'inherit',
-        margin: '10px',
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        height: '400px',
-        width: '300px',
-      }}
-    >
+    <Container href={`/${post.path}`}>
       <div
         style={{
-          // flexBasis: '300px',
-          // flex: 1,
-          // minWidth: '200px',
-          // maxWidth: '450px',
-          opacity: 0.92,
           boxShadow: '0px 2px 10px #00000040',
           width: '100%',
           maxWidth: '500px',
           overflow: 'hidden',
           borderRadius: '8px',
-          // boxShadow: '0px 2px 10px #00000020',
           display: 'flex',
           flexDirection: 'column',
           height: '100%',
-          // margin: '10px 0px',
         }}
       >
         {post.thumbnailPhoto && (
           <Image src={post.thumbnailPhoto} layout="responsive" width="500" height="400" />
-          // <div
-          //   style={{
-          //     background: `url(${post.thumbnailPhoto}) no-repeat center center`,
-          //     backgroundSize: 'cover',
-          //     width: '100%',
-          //     flex: 1,
-          //   }}
-          // />
         )}
         <div
           style={{
@@ -63,7 +59,6 @@ const PostCard: React.FC<{ post: PostData }> = (props) => {
             <h2
               style={{
                 margin: '0px 0px 7px 0px',
-                // padding: '2px 0px 2px 0px',
                 fontSize: '14pt',
                 fontWeight: 600,
                 padding: '2px 10%',
@@ -101,7 +96,7 @@ const PostCard: React.FC<{ post: PostData }> = (props) => {
           )}
         </div>
       </div>
-    </a>
+    </Container>
   )
 }
 

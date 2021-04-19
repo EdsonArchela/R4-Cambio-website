@@ -84,10 +84,10 @@ export const Author: React.FC<{ post: PostData }> = (props) => {
             src={post.authorPhoto}
             alt={post.author}
             style={{
-              width: '70px',
-              height: '70px',
-              borderRadius: '35px',
-              margin: '0px 10px 0px 0px',
+              width: '140px',
+              height: '140px',
+              borderRadius: '70px',
+              margin: '0 1rem 0 0',
             }}
           />
         )}

@@ -191,31 +191,51 @@ export const SecondSection = styled.section`
 
   & > * {
     flex: 1;
-    margin: 4rem;
+    margin: 2rem;
   }
 
   .main {
+    align-self: flex-start;
+    div:first-child {
+      margin-top: 0;
+    }
+
     .item {
+      width: 100%;
+      background: transparent;
+      border: none;
       border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
       padding: 0.5rem;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       justify-content: flex-start;
       color: ${({ theme }) => theme.colors.primary};
       font-size: ${({ theme }) => theme.textSizes.large};
       margin: 2rem 0;
+      transition: font-weight 0.2s ease-in-out;
+      &:hover {
+        font-weight: bold;
+        /* & + p {
+          display: inline;
+        } */
+      }
       p {
         margin: 0;
+        margin-left: 1rem;
       }
       .arrow-right {
-        width: 0;
-        height: 0;
-        border-top: 16px solid transparent;
-        border-bottom: 16px solid transparent;
-
-        border-left: 16px solid ${({ theme }) => theme.colors.primary};
-
-        padding-left: 1rem;
+        transform: rotate(90deg);
+      }
+      &.active .arrow-right {
+        transform: rotate(180deg);
+        transition: transform 0.3s ease-in-out;
+      }
+    }
+    .description {
+      display: none;
+      &.active {
+        display: block;
+        list-style-type: circle !important;
       }
     }
   }
@@ -224,6 +244,10 @@ export const SecondSection = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border: 2px solid ${({ theme }) => theme.colors.primary};
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 1.5rem;
     p {
       font-size: ${({ theme }) => theme.textSizes.extra};
       font-weight: bold;
