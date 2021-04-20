@@ -40,18 +40,18 @@ const ParaVoce: React.FC = () => {
   useEffect(() => {
     if (window !== undefined) {
       window.addEventListener('resize', () => setWidth(window.innerWidth))
-      if (window.innerWidth > 1024) {
+      if (window.innerWidth > 1280) {
         setMobile(false)
         setSliderSettings((prev) => ({ ...prev, slidesToShow: 3 }))
         setArrowSliderSettings((prev) => ({ ...prev, slidesToShow: 4 }))
       }
 
-      if (window.innerWidth <= 1024) {
+      if (window.innerWidth <= 1280) {
         setMobile(false)
         setSliderSettings((prev) => ({ ...prev, slidesToShow: 2 }))
         setArrowSliderSettings((prev) => ({ ...prev, slidesToShow: 2 }))
       }
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= 425) {
         setMobile(true)
         setSliderSettings((prev) => ({ ...prev, slidesToShow: 1, arrows: false, autoplay: true }))
         setArrowSliderSettings((prev) => ({
@@ -103,11 +103,7 @@ const ParaVoce: React.FC = () => {
           <div className="action">
             <div className="block">
               <div className="textBlock">
-                <h2>
-                  Nunca foi tão fácil fazer uma <br />
-                  transferência internacional <br />
-                  com segurança!
-                </h2>
+                <h2>Nunca foi tão fácil fazer uma transferência internacional com segurança!</h2>
                 <img src="/paravoce/TI2 1.png" alt="TI2" />
               </div>
               <div className="transferBox">

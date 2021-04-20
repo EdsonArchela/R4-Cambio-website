@@ -75,7 +75,15 @@ export const Main = styled.main`
     color: ${({ theme }) => theme.colors.background};
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
+    .textBlock {
+      h2 {
+        font-size: 48px;
+      }
+    }
+  }
+
+  @media (max-width: 425px) {
     height: 327px;
     .background {
       height: 219px;
@@ -162,7 +170,6 @@ export const FirstSection = styled.section`
   .action {
     position: relative;
     top: -165px;
-    left: 0;
     width: 100%;
     height: 736px;
     background: linear-gradient(
@@ -275,7 +282,34 @@ export const FirstSection = styled.section`
     }
   }
 
-  @media (max-width: 1360px) {
+  @media (max-width: 1024px) {
+    .block {
+      h2 {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+        font-size: 36px;
+        line-height: 40px;
+      }
+
+      img {
+        margin-left: 0px;
+        width: 400px;
+        height: auto;
+      }
+
+      .transferBox {
+        width: 450px;
+      }
+
+      .transferBoxText {
+        margin-left: 43px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
     height: 500px;
     margin-top: 120px;
 
@@ -510,6 +544,7 @@ export const WhiteSlide = styled.div`
 
     color: ${({ theme }) => theme.colors.primary};
   }
+
   @media (max-width: 768px) {
     height: 269px;
     margin: auto;
@@ -527,6 +562,7 @@ export const WhiteSlide = styled.div`
     }
   }
 `
+
 export const FirstFloating = styled.section`
   position: relative;
   flex-direction: column;
@@ -573,7 +609,7 @@ export const FirstFloating = styled.section`
 
   @media (max-width: 1024px) {
     .box {
-      width: 90%;
+      width: 90vw;
     }
   }
 
@@ -583,13 +619,11 @@ export const FirstFloating = styled.section`
       flex-direction: column;
       align-items: center;
 
-      width: 333px;
-
       h2 {
-        width: 200px;
+        width: 90%;
 
         font-size: 20px;
-        line-height: 23px;
+        line-height: 25px;
       }
 
       p {
@@ -605,7 +639,7 @@ export const ThirdSection = styled.section`
   display: flex;
   flex-direction: row;
 
-  width: 1429px;
+  width: 85%;
   height: 731px;
 
   margin-left: auto;
@@ -654,7 +688,8 @@ export const ThirdSection = styled.section`
     display: flex;
     flex-direction: column;
     width: 394px;
-    margin-left: 91px;
+    margin-left: 2rem;
+    margin-left: 2rem;
     margin-top: auto;
     margin-bottom: auto;
     justify-self: center;
@@ -683,7 +718,8 @@ export const ThirdSection = styled.section`
   .textBox {
     display: flex;
     flex-direction: column;
-    margin-left: 91px;
+    margin-left: 2rem;
+    margin-right: 2rem;
     margin-top: auto;
     margin-bottom: auto;
 
@@ -722,6 +758,31 @@ export const ThirdSection = styled.section`
     }
   }
 
+  @media (max-width: 1280px) {
+    width: 100%;
+
+    .itemBox {
+      width: 394px;
+      margin-left: 2rem;
+      margin-right: 2rem;
+      justify-self: center;
+    }
+
+    .textBox {
+      margin-left: auto;
+      margin-right: auto;
+
+      h2 {
+        font-size: 35px;
+        line-height: 40px;
+      }
+
+      .primary-button {
+        margin-top: 20px;
+      }
+    }
+  }
+
   @media (max-width: 1024px) {
     flex-direction: column;
     top: -75px;
@@ -736,7 +797,7 @@ export const ThirdSection = styled.section`
       margin-left: auto;
       margin-right: auto;
 
-      width: 85%;
+      width: 75%;
       height: 389px;
 
       border-radius: 10px;
@@ -757,7 +818,7 @@ export const ThirdSection = styled.section`
     }
 
     .itemBox {
-      width: 80%;
+      width: 40%;
       margin-left: auto;
       margin-right: auto;
       margin-top: 13px;
@@ -773,6 +834,7 @@ export const ThirdSection = styled.section`
         h3 {
           font-size: 12px;
           line-height: 14px;
+          color: ${({ theme }) => theme.colors.primary};
         }
       }
     }
@@ -805,6 +867,12 @@ export const ThirdSection = styled.section`
         line-height: 18.78px;
         text-align: center;
       }
+    }
+  }
+
+  @media (max-width: 425px) {
+    .itemBox {
+      width: 90%;
     }
   }
 `
@@ -866,7 +934,7 @@ export const ForthSection = styled.section`
         h3 {
           position: relative;
           top: 200px;
-          left: -100px;
+          left: -80px;
           font-style: normal;
           font-weight: bold;
           font-size: 36px;
@@ -916,6 +984,7 @@ export const ForthSection = styled.section`
     }
   }
 `
+
 export const SecondFloating = styled.section`
   position: relative;
   top: -100px;
