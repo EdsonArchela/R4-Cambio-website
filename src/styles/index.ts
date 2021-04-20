@@ -27,9 +27,10 @@ export const FirstSection = styled.section`
     bottom: 125px;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 600px) {
     width: 100vw;
     height: 300px;
+    background-position: 30%;
     .detail {
       display: none;
     }
@@ -204,7 +205,7 @@ export const ThirdSection = styled.section`
     }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 800px) {
     .mobile {
       display: unset;
     }
@@ -218,6 +219,7 @@ export const ThirdSection = styled.section`
     }
 
     .firstBlock {
+      max-width: 500px;
       width: 80%;
       justify-content: center;
       height: 100%;
@@ -335,7 +337,7 @@ export const FourthSection = styled.section<{ isVisible: boolean }>`
       }
     }
   }
-  @media (max-width: 480px) {
+  @media (max-width: 800px) {
     flex-direction: column;
     height: 100%;
     width: 80%;
