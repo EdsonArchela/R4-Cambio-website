@@ -73,11 +73,7 @@ const ParaVoce: React.FC = () => {
           <div className="action">
             <div className="block">
               <div className="textBlock">
-                <h2>
-                  Nunca foi tão fácil fazer uma <br />
-                  transferência internacional <br />
-                  com segurança!
-                </h2>
+                <h2>Nunca foi tão fácil fazer uma transferência internacional com segurança!</h2>
                 <img src="/paravoce/TI2 1.png" alt="TI2" />
               </div>
               <div className="transferBox">
