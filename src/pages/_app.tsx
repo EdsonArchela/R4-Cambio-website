@@ -20,6 +20,17 @@ const GlobalStyle = createGlobalStyle`
        }
     font-family: 'Raleway', sans-serif;
 
+    button.rec-dot:hover {
+      box-shadow: 0 0 1px 3px rgba(5, 85, 86, 0.5);
+    }
+
+    button.rec-dot:active,
+    button.rec-dot_active,
+    button.rec-dot:focus {
+      background-color: rgb(5, 85, 86);
+      box-shadow: 0 0 1px 3px rgba(5, 85, 86, 0.5);
+    }
+
     .primary-button{
       max-width: 270px;
       background: linear-gradient(

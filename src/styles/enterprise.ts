@@ -152,29 +152,20 @@ export const FirstSection = styled.section`
   .carousel {
     width: 80%;
     margin: 2rem auto;
-    .slick-arrow {
-      display: flex !important;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      height: 100%;
-      width: 35px;
-      &:before {
-        content: '';
-      }
+    button.rec-dot:hover {
+      box-shadow: 0 0 1px 3px rgba(5, 85, 86, 0.5);
+    }
+
+    button.rec-dot:active,
+    button.rec-dot_active,
+    button.rec-dot:focus {
+      background-color: rgb(5, 85, 86);
+      box-shadow: 0 0 1px 3px rgba(5, 85, 86, 0.5);
     }
   }
   @media (max-width: 768px) {
     h2 {
       text-align: center;
-    }
-    .slick-list {
-      width: 80%;
-    }
-    .slick-slider {
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
   }
   @media (max-width: 480px) {
@@ -308,6 +299,7 @@ export const ThirdSection = styled.section`
   background-repeat: no-repeat;
 
   .content {
+    width: 100%;
     max-width: 1224px;
   }
 
@@ -339,22 +331,16 @@ export const ThirdSection = styled.section`
     box-sizing: border-box;
     margin: 2rem auto;
     margin-bottom: 83px;
-    .slick-next:before {
-      content: '';
+
+    button.rec-dot:hover {
+      box-shadow: 0 0 1px 3px rgba(5, 85, 86, 0.5);
     }
-    .slick-prev:before {
-      content: '';
-    }
-    .slick-arrow {
-      display: flex !important;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      height: 100%;
-      width: 35px;
-      &:before {
-        content: '';
-      }
+
+    button.rec-dot:active,
+    button.rec-dot_active,
+    button.rec-dot:focus {
+      background-color: rgb(5, 85, 86);
+      box-shadow: 0 0 1px 3px rgba(5, 85, 86, 0.5);
     }
   }
   @media (max-width: 768px) {

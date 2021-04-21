@@ -926,7 +926,7 @@ export const SecondFloating = styled.section`
   .test {
     position: relative;
     display: block;
-    margin-left: auto;
+    margin: auto;
 
     width: 404px;
     height: 512px;

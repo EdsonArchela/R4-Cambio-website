@@ -1,11 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
-import Slider from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+import Carousel from 'react-elastic-carousel'
 
 import { useRouter } from 'next/dist/client/router'
 import {
@@ -18,39 +16,27 @@ import {
   WhiteSlide,
 } from '../styles/enterprise'
 import Slide from '../components/Carousel/Slide'
-import CustomArrow from '../components/CustomArrow'
+import ElasticArrow from '../components/ElasticArrow'
 
 const Enterprise: React.FC = () => {
   const route = useRouter()
   const [width, setWidth] = React.useState(0)
   const [mobile, setMobile] = React.useState(false)
-  const [sliderSettings, setSliderSettings] = useState({
-    dots: true,
-    infinite: false,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    nextArrow: <CustomArrow direction="next" />,
-    prevArrow: <CustomArrow direction="prev" />,
-  })
 
   useEffect(() => {
     if (window !== undefined) {
       window.addEventListener('resize', () => setWidth(window.innerWidth))
-      if (window.innerWidth > 1024) {
-        setMobile(false)
-        setSliderSettings((prev) => ({ ...prev, slidesToShow: 3 }))
-      }
-
-      if (window.innerWidth <= 1024) {
-        setMobile(false)
-        setSliderSettings((prev) => ({ ...prev, slidesToShow: 2 }))
-      }
       if (window.innerWidth <= 768) {
         setMobile(true)
-        setSliderSettings((prev) => ({ ...prev, slidesToShow: 1, arrows: false, autoplay: true }))
       }
     }
   }, [width])
+
+  const breakPoints = [
+    { width: 1, itemsToShow: 1, showArrows: false },
+    { width: 550, itemsToShow: 2, itemsToScroll: 2 },
+    { width: 1025, itemsToShow: 3 },
+  ]
 
   return (
     <>
@@ -93,7 +79,14 @@ const Enterprise: React.FC = () => {
       <FirstSection>
         <h2>Operações seguras para sua empresa!</h2>
         <div className="carousel">
-          <Slider {...sliderSettings}>
+          <Carousel
+            breakPoints={breakPoints}
+            isRTL={false}
+            disableArrowsOnEnd
+            enableMouseSwipe
+            enableSwipe
+            renderArrow={ElasticArrow}
+          >
             <Slide
               content={{
                 image: '/enterprise/cambio-pronto.png',
@@ -115,7 +108,7 @@ const Enterprise: React.FC = () => {
             <Slide content={{ image: '/enterprise/acc.png', title: 'ACC', slug: 'acc' }} />
 
             <Slide content={{ image: '/enterprise/finimp.png', title: 'FINIMP', slug: 'finimp' }} />
-          </Slider>
+          </Carousel>
         </div>
       </FirstSection>
       <Bar />
@@ -255,7 +248,14 @@ const Enterprise: React.FC = () => {
             </div>
           </div>
           <div className="carousel">
-            <Slider {...sliderSettings}>
+            <Carousel
+              breakPoints={breakPoints}
+              isRTL={false}
+              disableArrowsOnEnd
+              enableMouseSwipe
+              enableSwipe
+              renderArrow={ElasticArrow}
+            >
               <WhiteSlide>
                 <img src="/enterprise/export.svg" alt="Exportação" />
                 <h2>Recebimentos de exportações</h2>
@@ -296,7 +296,7 @@ const Enterprise: React.FC = () => {
                   recorrente para sua empresa.
                 </p>
               </WhiteSlide>
-            </Slider>
+            </Carousel>
           </div>
         </div>
       </ThirdSection>

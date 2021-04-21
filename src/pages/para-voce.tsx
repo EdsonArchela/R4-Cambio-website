@@ -1,10 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useEffect, useState } from 'react'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-import Slider from 'react-slick'
+import React, { useEffect } from 'react'
+import Carousel from 'react-elastic-carousel'
 import {
   Main,
   Bar,
@@ -16,55 +14,27 @@ import {
   ForthSection,
   SecondFloating,
 } from '../styles/para-voce'
-import CustomWhiteArrow from '../components/CustomWhiteArrow'
+import ElasticWhiteArrow from '../components/ElasticWhiteArrow'
+import ElasticArrow from '../components/ElasticArrow'
 
 const ParaVoce: React.FC = () => {
   const [width, setWidth] = React.useState(0)
-  const [mobile, setMobile] = React.useState(false);
-  const [sliderSettings, setSliderSettings] = useState({
-    dots: true,
-    infinite: false,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    nextArrow: <CustomWhiteArrow direction="next" />,
-    prevArrow: <CustomWhiteArrow direction="prev" />,
-  })
-  const [arrowSliderSettings, setArrowSliderSettings] = useState({
-    dots: false,
-    infinite: false,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    arrows: false,
-  })
+  const [mobile, setMobile] = React.useState(false)
 
   useEffect(() => {
     if (window !== undefined) {
       window.addEventListener('resize', () => setWidth(window.innerWidth))
-      if (window.innerWidth > 1024) {
-        setMobile(false)
-        setSliderSettings((prev) => ({ ...prev, slidesToShow: 3 }))
-        setArrowSliderSettings((prev) => ({ ...prev, slidesToShow: 4 }))
-      }
-
-      if (window.innerWidth <= 1024) {
-        setMobile(false)
-        setSliderSettings((prev) => ({ ...prev, slidesToShow: 2 }))
-        setArrowSliderSettings((prev) => ({ ...prev, slidesToShow: 2 }))
-      }
       if (window.innerWidth <= 768) {
         setMobile(true)
-        setSliderSettings((prev) => ({ ...prev, slidesToShow: 1, arrows: false, autoplay: true }))
-        setArrowSliderSettings((prev) => ({
-          ...prev,
-          dots: true,
-          slidesToShow: 1,
-          arrows: false,
-          autoplay: true,
-        }))
       }
     }
   }, [width])
-
+  const breakPoints = [
+    { width: 1, itemsToShow: 1, showArrows: false },
+    { width: 550, itemsToShow: 2, itemsToScroll: 2 },
+    { width: 1025, itemsToShow: 3 },
+    { width: 1436, itemsToShow: 4, pagination: false, showArrows: false },
+  ]
   return (
     <>
       <Main>
@@ -158,7 +128,14 @@ const ParaVoce: React.FC = () => {
               Segurança nas operações e lucro recorrente para sua empresa.
             </p>
             <div className="carousel">
-              <Slider {...sliderSettings}>
+              <Carousel
+                breakPoints={breakPoints}
+                isRTL={false}
+                disableArrowsOnEnd
+                enableMouseSwipe
+                enableSwipe
+                renderArrow={ElasticWhiteArrow}
+              >
                 <WhiteSlide>
                   <img src="/paravoce/Ícone transfer.png" alt="transfer" />
                   <h3>
@@ -226,7 +203,7 @@ const ParaVoce: React.FC = () => {
                     Chip <br /> internacional
                   </h3>
                 </WhiteSlide>
-              </Slider>
+              </Carousel>
             </div>
           </div>
         </div>
@@ -292,7 +269,14 @@ const ParaVoce: React.FC = () => {
           <p>CONTEÚDOS EXCLUSIVOS</p>
           <h2>NEWS R4</h2>
           <div className="itemBox">
-            <Slider {...arrowSliderSettings}>
+            <Carousel
+              breakPoints={breakPoints}
+              isRTL={false}
+              disableArrowsOnEnd
+              enableMouseSwipe
+              enableSwipe
+              renderArrow={ElasticArrow}
+            >
               <div className="item">
                 <h3>NOTÍCIAS</h3>
               </div>
@@ -305,12 +289,19 @@ const ParaVoce: React.FC = () => {
               <div className="item">
                 <h3>TENDÊNCIAS</h3>
               </div>
-            </Slider>
+            </Carousel>
           </div>
         </div>
       </ForthSection>
       <SecondFloating>
-        <Slider {...sliderSettings}>
+        <Carousel
+          breakPoints={breakPoints}
+          isRTL={false}
+          disableArrowsOnEnd
+          enableMouseSwipe
+          enableSwipe
+          renderArrow={ElasticArrow}
+        >
           <div className="test">
             <div className="box">
               <div className="rect">
@@ -377,7 +368,7 @@ const ParaVoce: React.FC = () => {
               </button>
             </div>
           </div>
-        </Slider>
+        </Carousel>
       </SecondFloating>
       <Bar />
     </>
