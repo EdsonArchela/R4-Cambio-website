@@ -14,13 +14,15 @@ export default function contact(
       pass: process.env.ZOHO_PWS,
     },
   })
-
+  console.log(process.env.ZOHO_PWS)
   const mailData = {
     from: 'edsonarchela@r4cambio.com.br',
     to: 'edi.eeq@gmail.com',
-    subject: `Mensagem de ${request.body.name}`,
+    cc: request.body.email,
+    subject: `Mensagem de ${request.body.name} - WEBSITE`,
     text: request.body.message,
     html: `<div>
+    <h1>Mensagem enviada da página de Contatos</h1>
     <p>Nome: ${request.body.name}</p>
     <p>E-mail: ${request.body.email}</p>
     <p>Telefone: ${request.body.phone}</p>

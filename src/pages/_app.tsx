@@ -5,6 +5,7 @@ import Head from 'next/head'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import Header from '../components/pattern/Header'
 import Footer from '../components/pattern/Footer'
+import FloatingWhatsapp from '../components/FloatingWhatsapp'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -98,6 +99,7 @@ export default class MyApp extends App {
           <Header />
           <Component {...pageProps} />
           <div style={{ flex: 1 }} />
+          <FloatingWhatsapp />
           <Footer />
         </div>
         <GlobalStyle />
