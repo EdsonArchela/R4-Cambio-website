@@ -85,16 +85,9 @@ const Contact = () => {
   }) => {
     await fetch('/api/contact', {
       method: 'POST',
-      headers: {
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(values),
     })
-      .then((response) => {
-        if (response.status === 200) reset()
-      })
-      .catch((err) => console.log(err))
   }
 
   return (
