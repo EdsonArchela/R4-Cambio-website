@@ -100,15 +100,15 @@ const ParaVoce: React.FC = () => {
                     <p>Segurança nas operações </p>
                   </div>
                 </div>
-                <button
-                  type="button"
+                <a
                   className="primary-button"
-                  onClick={() => {
-                    console.log('Gostaria de fazer uma transferência')
-                  }}
+                  target="_blank"
+                  href="https://iamsimple.com.br/r4cambio/"
+                  rel="noreferrer"
+                  style={{ height: '2rem' }}
                 >
                   quero fazer uma tranferência
-                </button>
+                </a>
               </div>
             </div>
           </div>

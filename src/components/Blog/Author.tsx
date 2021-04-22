@@ -61,7 +61,9 @@ export const AuthorLines: React.FC<{ post: PostData }> = (props) => {
             style={{
               textDecoration: 'none',
             }}
-            href={`https://api.whatsapp.com/send?phone=${post.authorWhats}&text=Ol%C3%A1%2C+preciso+de+atendimento+para+uma+opera%C3%A7%C3%A3o+de+c%C3%A2mbio.`}
+            href={`https://api.whatsapp.com/send?phone=${post.authorWhats}&text=${encodeURI(
+              `Olá, vi seu artigo "${post.title}" e gostaria de saber mais sobre.`
+            )}`}
             target="_blank"
             rel="noreferrer"
           >
