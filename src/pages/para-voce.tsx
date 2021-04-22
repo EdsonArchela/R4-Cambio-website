@@ -277,7 +277,7 @@ const ParaVoce: React.FC = () => {
                 <h3>NOTÍCIAS</h3>
               </div>
               <div className="item">
-                <h3>OPINIÕES</h3>
+                <h3>PRODUTOS</h3>
               </div>
               <div className="item">
                 <h3>ARTIGOS</h3>

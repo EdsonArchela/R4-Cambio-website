@@ -3,8 +3,17 @@ import React from 'react'
 import { format } from 'date-fns'
 import pt from 'date-fns/locale/pt-BR'
 
+import styled from 'styled-components'
 import { PostData } from '../../utils/loader'
 import { config } from '../../utils/globals'
+
+const Fale = styled.a`
+  background-color: #055556;
+  border-radius: 8px;
+  padding: 0.25rem;
+  margin-top: 0.5rem !important;
+  color: white;
+`
 
 export const FollowButton = (): JSX.Element => {
   return (
@@ -46,16 +55,18 @@ export const AuthorLines: React.FC<{ post: PostData }> = (props) => {
           : ''}
       </p>
 
-      <p style={{ ...lineStyle }}>
-        {post.authorTwitter && (
-          <a
+      <p style={{ ...lineStyle, marginTop: '0.5rem' }}>
+        {post.authorWhats && (
+          <Fale
             style={{
               textDecoration: 'none',
-              color: '#3b9488',
-              // fontSize: '110%',
             }}
-            href={`https://twitter.com/${post.authorTwitter}`}
-          >{`@${post.authorTwitter}`}</a>
+            href={`https://api.whatsapp.com/send?phone=${post.authorWhats}&text=Ol%C3%A1%2C+preciso+de+atendimento+para+uma+opera%C3%A7%C3%A3o+de+c%C3%A2mbio.`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Fale comigo
+          </Fale>
         )}
       </p>
     </div>

@@ -4,9 +4,12 @@ subtitle: A utilização da modalidade de câmbio pronto possibilita que as melh
 published: true
 datePublished: 1618665692000
 author: Edson Archela
+authorWhats: +5543996477425
 tags:
-  - para Você
-  - para sua Empresa
+  #  - Artigos
+  # - Notícias
+  - Produtos
+# - Tendências
 authorPhoto: /assets/authors/edson.jpg
 bannerPhoto: /blog/edson-1.png
 thumbnailPhoto: /blog/edson-1.png

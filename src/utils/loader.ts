@@ -15,6 +15,7 @@ export type PostData = {
   author?: string
   authorPhoto?: string
   authorTwitter?: string
+  authorWhats?: string
   tags?: string[]
   bannerPhoto?: string
   thumbnailPhoto?: string
@@ -37,6 +38,7 @@ export const mdToPost = (file: RawFile): PostData => {
     author: metadata.data.author || null,
     authorPhoto: metadata.data.authorPhoto || null,
     authorTwitter: metadata.data.authorTwitter || null,
+    authorWhats: metadata.data.authorWhats || null,
     bannerPhoto: metadata.data.bannerPhoto || null,
     thumbnailPhoto: metadata.data.thumbnailPhoto || null,
     content: metadata.content,

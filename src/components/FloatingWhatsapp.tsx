@@ -15,7 +15,6 @@ const Whats = styled.a`
   border: none;
   text-align: center;
   font-size: 1rem;
-  box-shadow: 2px 2px 3px #999;
   z-index: 100;
   display: flex;
   align-items: center;
@@ -23,7 +22,7 @@ const Whats = styled.a`
 `
 const FloatingWhatsapp = () => (
   <Whats
-    href="https://api.whatsapp.com/send?phone=43996477425&text=Ol%C3%A1%2C+preciso+de+atendimento+para+uma+oper%C3%A7%C3%A3o+de+c%C3%A2mbio."
+    href="https://api.whatsapp.com/send?phone=+554331421032&text=Ol%C3%A1%2C+preciso+de+atendimento+para+uma+opera%C3%A7%C3%A3o+de+c%C3%A2mbio."
     target="_blank"
   >
     <Image src="/assets/WhatsApp.svg" alt="Whatspp" width={60} height={60} />

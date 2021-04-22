@@ -4,12 +4,15 @@ subtitle: Segundo levantamento realizado pelo Valor Data desde 1998, a diferenç
 published: true
 datePublished: 1618783154000
 author: Arthur Henrique
+authorWhats: +554396787809
 tags:
-  - para Você
-  - para sua Empresa
+  - Artigos
+# - Notícias
+# - Produtos
+# - Tendências
 authorPhoto: /assets/authors/arthur.jpg
-bannerPhoto: /blog/arthur-1.jpg
-thumbnailPhoto: /blog/arthur-1.jpg
+bannerPhoto: /blog/arthur-1.jpeg
+thumbnailPhoto: /blog/arthur-1.jpeg
 canonicalUrl: https://r4cambio.com.br
 ---
 
