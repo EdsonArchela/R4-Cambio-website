@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useEffect } from 'react'
 import Carousel from 'react-elastic-carousel'
+import { useRouter } from 'next/dist/client/router'
 import {
   Main,
   Bar,
@@ -20,6 +21,7 @@ import ElasticArrow from '../components/ElasticArrow'
 const ParaVoce: React.FC = () => {
   const [width, setWidth] = React.useState(0)
   const [mobile, setMobile] = React.useState(false)
+  const router = useRouter()
 
   useEffect(() => {
     if (window !== undefined) {
@@ -137,11 +139,14 @@ const ParaVoce: React.FC = () => {
                   <h3>
                     Transferências <br /> internacionais
                   </h3>
-                  <h4>
-                    As melhores soluções em câmbio para o agronegócio.
-                    <br />
-                    Segurança nas operações e lucro recorrente para sua empresa.
-                  </h4>
+                  <ul>
+                    <li>Envio de recursos para sua conta no exterior</li>
+                    <li>Envio de recursos aos familiares que estão no exterior</li>
+                    <li>Envio de recursos para investir no exterior</li>
+                    <li>Pagamento de cursos e conferências internacionais</li>
+                    <li>Pagamentos de processos de cidadania</li>
+                    <li>Compra de imóveis recebimento de aluguéis no exterior</li>
+                  </ul>
                 </WhiteSlide>
                 <WhiteSlide>
                   <img src="/paravoce/Ícone google.png" alt="google" />
@@ -149,9 +154,9 @@ const ParaVoce: React.FC = () => {
                     Google <br /> adsense
                   </h3>
                   <h4>
-                    As melhores soluções em câmbio para o agronegócio.
-                    <br />
-                    Segurança nas operações e lucro recorrente para sua empresa.
+                    Você tem um canal no YouTube? Ou é um influenciador digital? Chegou a hora de
+                    ganhar dinheiro com o seu canal com Google AdSense! A R4 Câmbio ainda lhe
+                    auxilia a economizar na hora do câmbio.
                   </h4>
                 </WhiteSlide>
                 <WhiteSlide>
@@ -160,9 +165,9 @@ const ParaVoce: React.FC = () => {
                     Seguro <br /> viagem
                   </h3>
                   <h4>
-                    As melhores soluções em câmbio para o agronegócio.
-                    <br />
-                    Segurança nas operações e lucro recorrente para sua empresa.
+                    Com o seguro viagem internacional você conta com assistência 24 horas no caso de
+                    algum imprevisto no exterior. Garantia de qualidade Allianz, líder mundial em
+                    seguro viagem.
                   </h4>
                 </WhiteSlide>
                 <WhiteSlide>
@@ -171,9 +176,10 @@ const ParaVoce: React.FC = () => {
                     Cartão <br /> Pré-pago
                   </h3>
                   <h4>
-                    As melhores soluções em câmbio para o agronegócio.
-                    <br />
-                    Segurança nas operações e lucro recorrente para sua empresa.
+                    Com o Cash Passport Mastercard Platinum, o cartão pré-pago da Confidence Câmbio,
+                    você tem muito mais segurança para viajar para o exterior. Carregue em até seis
+                    moedas estrangeiras, livre de anuidade. Faça recargas de fora do Brasil
+                    utilizando nossos serviços de assessoria.
                   </h4>
                 </WhiteSlide>
                 <WhiteSlide>
@@ -182,9 +188,9 @@ const ParaVoce: React.FC = () => {
                     Money <br /> Gram
                   </h3>
                   <h4>
-                    As melhores soluções em câmbio para o agronegócio.
-                    <br />
-                    Segurança nas operações e lucro recorrente para sua empresa.
+                    Com a MoneyGram, você envia e recebe dinheiro do exterior em poucos minutos,
+                    após confirmação do pagamento, para mais de 190 países e na comodidade da sua
+                    casa!
                   </h4>
                 </WhiteSlide>
                 <WhiteSlide>
@@ -192,12 +198,23 @@ const ParaVoce: React.FC = () => {
                   <h3>
                     Moeda em <br /> espécie
                   </h3>
+                  <h4>
+                    Se você vai viajar para o exterior, é muito importante ter um planejamento bem
+                    detalhado para curtir a experiência ao máximo. Fale com um assessor e conheça
+                    maneiras de como comprar sua Moeda em Espécie de forma rápida e segura!
+                  </h4>
                 </WhiteSlide>
                 <WhiteSlide>
                   <img src="/paravoce/Ícone chip.png" alt="chip" />
                   <h3>
                     Chip <br /> internacional
                   </h3>
+                  <h4>
+                    Com o chip internacional de celular você já sai do Brasil conectado com chamadas
+                    de voz e pacote de dados de internet, sem limite de franquia diária! Coberturas
+                    em mais de 20 países. Chip internacional do tipo Triple Simcard, ou seja,
+                    atendem celulares com chips de tamanho padrão, micro ou nano
+                  </h4>
                 </WhiteSlide>
               </Carousel>
             </div>
@@ -205,14 +222,31 @@ const ParaVoce: React.FC = () => {
         </div>
       </SecondSection>
       <FirstFloating>
-        <div className="box">
+        <button
+          type="button"
+          onClick={() => {
+            router.push('/blog/limites-cambio-pf')
+          }}
+          className="box"
+        >
           <h2>
             VOCÊ SABE QUAL O LIMITE DE COMPRA DE MOEDA ESTRANGEIRA QUE <br /> UMA PESSOA FÍSICA PODE
             FAZER?
           </h2>
           <img src="/paravoce/Line 6.svg" alt="line" />
-          <p>Texto explicativo</p>
-        </div>
+          <p>
+            O número de investidores brasileiros aumentou drásticamente nos útimos anos,
+            principalmente em virtude da queda da taxa de juros que há muito não estivera tão baixa
+            como nos níveis atuais. O número de investidores aumentou mais nos últimos 2 anos que
+            nos 10 anos anteriors.
+          </p>
+
+          <p>
+            Buscando diversificar seus patrimônios muitos brasileiros têm buscado alternativas de
+            investimentos em outros países, na maioria nos EUA. É possível hoje abrir uma conta em
+            uma corretora no exterior e operar, mesmo morando no Brasil.
+          </p>
+        </button>
       </FirstFloating>
       <ThirdSection>
         <div className="imgBox">

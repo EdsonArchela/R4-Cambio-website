@@ -538,11 +538,21 @@ export const WhiteSlide = styled.div`
 
     font-style: normal;
     font-weight: 300;
-    font-size: 22px;
+    font-size: 1rem;
     line-height: 26px;
     text-align: center;
 
     color: ${({ theme }) => theme.colors.primary};
+  }
+
+  ul {
+    list-style: square outside none;
+    padding: 0;
+
+    li {
+      padding-top: 0.25rem;
+      text-align: justify;
+    }
   }
 
   @media (max-width: 768px) {
@@ -578,7 +588,7 @@ export const FirstFloating = styled.section`
 
     background: ${({ theme }) => theme.colors.secondary};
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
+    padding: 0 1rem;
     h2 {
       font-style: normal;
       font-weight: 800;
@@ -602,7 +612,6 @@ export const FirstFloating = styled.section`
       font-size: 24px;
       line-height: 28px;
       text-align: center;
-
       color: #fafafa;
     }
   }
