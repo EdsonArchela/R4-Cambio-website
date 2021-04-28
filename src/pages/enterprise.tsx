@@ -260,42 +260,41 @@ const Enterprise: React.FC = () => {
                 <img src="/enterprise/export.svg" alt="Exportação" />
                 <h2>Recebimentos de exportações</h2>
                 <p>
-                  As melhores soluções em câmbio para o agronegócio. Segurança nas operações e lucro
-                  recorrente para sua empresa.
+                  Repatrie seus pagamentos de forma descomplicada e com as melhores taxas do
+                  mercado. E ainda conte com nosso time de analistas
                 </p>
               </WhiteSlide>
               <WhiteSlide>
                 <img src="/enterprise/hedge.svg" alt="Hedge" />
                 <h2>Operações de Hedge Cambial</h2>
                 <p>
-                  As melhores soluções em câmbio para o agronegócio. Segurança nas operações e lucro
-                  recorrente para sua empresa.
+                  As melhores soluções para proteção de sua renda. Conte com nossos analistas para
+                  encontrar os melhores produtos em suas operações de hedge
                 </p>
               </WhiteSlide>
               <WhiteSlide>
                 <img src="/enterprise/marginCall.svg" alt="Margin Call" />
                 <h2>Pagamentos e recebimentos de Margin Call</h2>
                 <p>
-                  As melhores soluções em câmbio para o agronegócio. Segurança nas operações e lucro
-                  recorrente para sua empresa.
+                  Faça os ajustes diários de suas posições de hedge na CME Group de forma
+                  descomplicada e com as melhores taxas do mercado.
                 </p>
               </WhiteSlide>
               <WhiteSlide>
                 <img src="/enterprise/tradeFinance.svg" alt="Trade Finance" />
                 <h2>Trade Finance</h2>
                 <p>
-                  As melhores soluções em câmbio para o agronegócio. Segurança nas operações e lucro
-                  recorrente para sua empresa.
+                  Faça o financiamento de suas operações de exportação se livrando do risco de
+                  inadimplência e aumentando sua previsibilidade de caixa.
                 </p>
               </WhiteSlide>
-              <WhiteSlide>
+              {/* <WhiteSlide>
                 <img src="/enterprise/accAce.svg" alt="Contratação" />
                 <h2>Contratação ACC, ACE</h2>
                 <p>
-                  As melhores soluções em câmbio para o agronegócio. Segurança nas operações e lucro
-                  recorrente para sua empresa.
+                  Faça ACC e ACE
                 </p>
-              </WhiteSlide>
+              </WhiteSlide> */}
             </Carousel>
           </div>
         </div>

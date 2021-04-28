@@ -124,7 +124,7 @@ const Footer = () => (
           <Link href="/para-voce">Para você</Link>
         </li>
         <li>
-          <Link href="/para-empresa">Para sua empresa</Link>
+          <Link href="/enterprise">Para sua empresa</Link>
         </li>
         <li>
           <Link href="/blog">Blog</Link>

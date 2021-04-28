@@ -121,11 +121,7 @@ const ParaVoce = ({ posts }: { posts: PostData[] }): JSX.Element => {
         <div className="gradient">
           <div className="block">
             <h2>As melhores opções em um só lugar!</h2>
-            <p>
-              As melhores soluções em câmbio para o agronegócio.
-              <br />
-              Segurança nas operações e lucro recorrente para sua empresa.
-            </p>
+            <p>As melhores soluçãos para você, com segurança, simplicidade e agilidade!</p>
             <div className="carousel">
               <Carousel
                 breakPoints={breakPoints}
