@@ -9,7 +9,7 @@ export default async (
 
   const msg = {
     to: 'contato@r4cambio.com.br',
-    from: request.body.email || 'edsonarchela@r4cambio.com.br',
+    from: 'edsonarchela@r4cambio.com.br',
     subject: `Mensagem de ${request.body.name} - WEBSITE`,
     text: request.body.message,
     // cc: request.body.email,
