@@ -17,8 +17,9 @@ import {
 } from '../styles/para-voce'
 import ElasticWhiteArrow from '../components/ElasticWhiteArrow'
 import ElasticArrow from '../components/ElasticArrow'
+import { loadBlogPosts, PostData } from '../utils/loader'
 
-const ParaVoce: React.FC = () => {
+const ParaVoce = ({ posts }: { posts: PostData[] }): JSX.Element => {
   const [width, setWidth] = React.useState(0)
   const [mobile, setMobile] = React.useState(false)
   const router = useRouter()
@@ -332,7 +333,27 @@ const ParaVoce: React.FC = () => {
           enableSwipe
           renderArrow={ElasticArrow}
         >
-          <div className="test">
+          {posts.map((post) => (
+            <div className="test" key={post.title}>
+              <div className="box">
+                <div className="rect">
+                  <img src={post.thumbnailPhoto} alt="" />
+                </div>
+                <h2>{post.title}</h2>
+                <p>{post.subtitle}</p>
+                <button
+                  type="button"
+                  className="primary-button"
+                  onClick={() => {
+                    router.push(post.path)
+                  }}
+                >
+                  conferir a matéria
+                </button>
+              </div>
+            </div>
+          ))}
+          {/* <div className="test">
             <div className="box">
               <div className="rect">
                 <img src="/paravoce/market 1.png" alt="Market" />
@@ -397,7 +418,7 @@ const ParaVoce: React.FC = () => {
                 quero acessar
               </button>
             </div>
-          </div>
+          </div> */}
         </Carousel>
       </SecondFloating>
       <Bar />
@@ -406,3 +427,9 @@ const ParaVoce: React.FC = () => {
 }
 
 export default ParaVoce
+
+export const getStaticProps = async () => {
+  const posts = await loadBlogPosts()
+  const props = { posts: posts.slice(0, 5) }
+  return { props }
+}
