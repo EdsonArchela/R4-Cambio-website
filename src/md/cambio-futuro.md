@@ -4,8 +4,12 @@ subtitle: A variação da taxa cambial pode impactar fortemente a receita de emp
 published: true
 datePublished: 1618665692000
 author: Edson Archela
+authorWhats: +5543996477425
 tags:
-  - para sua Empresa
+  #  - Artigos
+  # - Notícias
+  - Produtos
+# - Tendências
 authorPhoto: /assets/authors/edson.jpg
 bannerPhoto: /blog/edson-2.png
 thumbnailPhoto: /blog/edson-2.png

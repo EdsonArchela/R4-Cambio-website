@@ -2,8 +2,6 @@ import React from 'react'
 import {
   TwitterShareButton,
   TwitterIcon,
-  PinterestShareButton,
-  PinterestIcon,
   FacebookShareButton,
   FacebookIcon,
   WhatsappShareButton,
@@ -16,31 +14,22 @@ const SocialShare: React.FC<{ post: PostData; style: any }> = ({ post, style }) 
   return (
     <div className="container" style={{ ...style }}>
       <FacebookShareButton
-        url={`http://r4cambio.com.br/${post.path}`}
+        url={`https://r4-cambio-website.vercel.app/${post.path}`}
         quote={post.title}
         className="Demo__some-network__share-button"
       >
         <FacebookIcon size={size} round />
       </FacebookShareButton>
-
       <TwitterShareButton
-        url={`http://r4cambio.com.br/${post.path}`}
+        url={`https://r4-cambio-website.vercel.app/${post.path}`}
         title={post.title}
         className="Demo__some-network__share-button"
         style={{ marginLeft: '0.5rem' }}
       >
         <TwitterIcon size={size} round />
       </TwitterShareButton>
-      <PinterestShareButton
-        url={`http://r4cambio.com.br/${post.path}`}
-        media={`r4cambio.com.br/${`http://r4cambio.com.br/${post.thumbnailPhoto}`}`}
-        className="Demo__some-network__share-button"
-        style={{ marginLeft: '0.5rem' }}
-      >
-        <PinterestIcon size={size} round />
-      </PinterestShareButton>
       <WhatsappShareButton
-        url={`http://r4cambio.com.br/${post.path}`}
+        url={`https://r4-cambio-website.vercel.app/${post.path}`}
         title={post.title}
         style={{ marginLeft: '0.5rem' }}
       >

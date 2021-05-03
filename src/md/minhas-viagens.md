@@ -4,8 +4,12 @@ subtitle: Saiba quanto dinheiro em espécie pode ser levado em viagens para o ex
 published: true
 datePublished: 1618665692000
 author: Helenice Barbosa
+authorWhats: +554399260032
 tags:
-  - para Você
+  - Artigos
+# - Notícias
+# - Produtos
+# - Tendências
 authorPhoto: /assets/authors/helenice.jpeg
 bannerPhoto: /blog/helenice-1.jpg
 thumbnailPhoto: /blog/helenice-1.jpg

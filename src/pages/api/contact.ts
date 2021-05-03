@@ -8,7 +8,7 @@ export default async (
   sgMail.setApiKey(process.env.SENDGRIDKEY || 'undefined')
 
   const msg = {
-    to: ['contato@r4cambio.com.br', 'edi.eeq@gmail.com'],
+    to: 'contato@r4cambio.com.br',
     from: 'edsonarchela@r4cambio.com.br',
     subject: `Mensagem de ${request.body.name} - WEBSITE`,
     text: request.body.message,

@@ -5,6 +5,7 @@ import pt from 'date-fns/locale/pt-BR'
 import styled from 'styled-components'
 import { PostData } from '../../utils/loader'
 import Tag from './Tag'
+import tagColors from '../../utils/tagColors'
 
 const Container = styled.a`
   text-decoration: inherit;
@@ -19,7 +20,7 @@ const Container = styled.a`
   border-radius: 8px;
   transition: all 0.3s ease-out;
   position: relative;
-
+  overflow: hidden;
   &:hover {
     border: 2px solid #055556;
     box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
@@ -28,8 +29,31 @@ const Container = styled.a`
   }
 `
 
+const TagLabel = styled.span<{ color: string }>`
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+  overflow: hidden;
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  background-color: ${({ color }) => color};
+  padding: 0.25rem;
+  padding-right: 1rem;
+  color: white;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+`
+
 const PostCard: React.FC<{ post: PostData }> = (props) => {
   const { post } = props
+  console.log(tagColors(post.tags ? post.tags[0] : '0'))
   return (
     <Container href={`/${post.path}`}>
       <div
@@ -45,7 +69,10 @@ const PostCard: React.FC<{ post: PostData }> = (props) => {
         }}
       >
         {post.thumbnailPhoto && (
-          <Image src={post.thumbnailPhoto} layout="responsive" width="500" height="400" />
+          <>
+            <Image src={post.thumbnailPhoto} layout="responsive" width="500" height="400" />
+            {post.tags && <TagLabel color={tagColors(post.tags[0])}>{post.tags[0]}</TagLabel>}
+          </>
         )}
         <div
           style={{

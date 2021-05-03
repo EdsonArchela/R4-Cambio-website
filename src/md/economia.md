@@ -4,9 +4,12 @@ subtitle: As taxas de câmbio dos bancos tradicionais normalmente são bastante 
 published: true
 datePublished: 1618665692000
 author: Helenice Barbosa
+authorWhats: +554399260032
 tags:
-  - para Você
-  - para sua Empresa
+  - Artigos
+# - Notícias
+# - Produtos
+# - Tendências
 authorPhoto: /assets/authors/helenice.jpeg
 bannerPhoto: /blog/helenice-2.jpg
 thumbnailPhoto: /blog/helenice-2.jpg

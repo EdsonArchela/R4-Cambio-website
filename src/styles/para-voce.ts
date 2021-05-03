@@ -538,11 +538,21 @@ export const WhiteSlide = styled.div`
 
     font-style: normal;
     font-weight: 300;
-    font-size: 22px;
+    font-size: 1rem;
     line-height: 26px;
     text-align: center;
 
     color: ${({ theme }) => theme.colors.primary};
+  }
+
+  ul {
+    list-style: square outside none;
+    padding: 0;
+
+    li {
+      padding-top: 0.25rem;
+      text-align: justify;
+    }
   }
 
   @media (max-width: 768px) {
@@ -578,7 +588,7 @@ export const FirstFloating = styled.section`
 
     background: ${({ theme }) => theme.colors.secondary};
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
+    padding: 0 1rem;
     h2 {
       font-style: normal;
       font-weight: 800;
@@ -602,7 +612,6 @@ export const FirstFloating = styled.section`
       font-size: 24px;
       line-height: 28px;
       text-align: center;
-
       color: #fafafa;
     }
   }
@@ -1005,12 +1014,13 @@ export const SecondFloating = styled.section`
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       margin-left: auto;
       margin-right: auto;
+      padding: 1rem;
 
       width: 90%;
-      height: 508px;
+      height: 480px;
 
       background: ${({ theme }) => theme.colors.background};
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -1025,8 +1035,7 @@ export const SecondFloating = styled.section`
         margin-left: auto;
         margin-right: auto;
 
-        width: 93px;
-        height: 93px;
+        width: 250px;
         background: #fdfdfd;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
@@ -1037,8 +1046,7 @@ export const SecondFloating = styled.section`
           align-items: center;
           justify-content: center;
 
-          width: 49px;
-          height: 49px;
+          width: 100%;
           background: ${({ theme }) => theme.colors.background};
         }
       }
@@ -1056,9 +1064,13 @@ export const SecondFloating = styled.section`
       p {
         font-style: normal;
         font-weight: normal;
-        font-size: 24px;
+        font-size: 1.2rem;
         line-height: 28px;
-        text-align: center;
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: calc(28 * 4) px;
+        text-align: justify;
 
         color: ${({ theme }) => theme.colors.primary};
       }

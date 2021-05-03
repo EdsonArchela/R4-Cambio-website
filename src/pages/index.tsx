@@ -16,8 +16,9 @@ import {
   ThirdSection,
   Coin,
 } from '../styles/index'
+import { loadBlogPosts, PostData } from '../utils/loader'
 
-const Index = (): JSX.Element => {
+const Index = ({ posts }: { posts: PostData[] }): JSX.Element => {
   const route = useRouter()
 
   const sliderSettings = {
@@ -109,20 +110,20 @@ const Index = (): JSX.Element => {
             <img src="/home/notebook.png" alt="notebook" id="notebookImg" />
           </div>
           <div className="firstBlock notMobile">
-            <PickCard img="/home/building.png">
-              <h2>Entenda porque o dólar influência o mercado de câmbio!</h2>
+            <PickCard img={posts[0].thumbnailPhoto || '/home/building.png'}>
+              <h2>{posts[0].title}</h2>
             </PickCard>
-            <PickCard img="/home/coffee.png">
-              <h2>Um checklist completo para os seus primeiros passos no mercado de câmbio.</h2>
+            <PickCard img={posts[1].thumbnailPhoto || '/home/coffee.png'}>
+              <h2>{posts[1].title}</h2>
             </PickCard>
           </div>
           <div className="firstBlock mobile">
             <Slider {...sliderSettings}>
-              <PickCard img="/home/building.png">
-                <h2>Entenda porque o dólar influência o mercado de câmbio!</h2>
+              <PickCard img={posts[0].thumbnailPhoto || '/home/building.png'}>
+                <h2>{posts[0].title}</h2>
               </PickCard>
-              <PickCard img="/home/coffee.png">
-                <h2>Um checklist completo para os seus primeiros passos no mercado de câmbio.</h2>
+              <PickCard img={posts[1].thumbnailPhoto || '/home/coffee.png'}>
+                <h2>{posts[1].title}</h2>
               </PickCard>
             </Slider>
           </div>
@@ -180,3 +181,9 @@ const Index = (): JSX.Element => {
 }
 
 export default Index
+
+export const getStaticProps = async () => {
+  const posts = await loadBlogPosts()
+  const props = { posts: posts.slice(0, 2) }
+  return { props }
+}
