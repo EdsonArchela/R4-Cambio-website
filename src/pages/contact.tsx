@@ -75,6 +75,7 @@ const formTheme = createMuiTheme({
 
 const Contact = () => {
   const { register, handleSubmit, reset } = useForm()
+  const [sending, setSending] = useState(false)
 
   const onSubmitForm = async (values: {
     name: string
@@ -83,13 +84,18 @@ const Contact = () => {
     phone: string
     message: string
   }) => {
+    setSending(true)
     await fetch('/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(values),
-    }).then(() => {
-      reset()
     })
+      .then(() => {
+        reset()
+      })
+      .finally(() => {
+        setSending(false)
+      })
   }
 
   return (
@@ -177,7 +183,7 @@ const Contact = () => {
               />
             </FormControl>
             <Button variant="contained" color="primary" type="submit">
-              Enviar
+              {sending ? <Image src="/assets/spinner.png" width={18} height={18} /> : 'Enviar'}
             </Button>
           </ThemeProvider>
         </form>
