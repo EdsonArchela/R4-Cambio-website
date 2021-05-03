@@ -14,7 +14,7 @@ import {
 } from '@material-ui/core'
 import { useForm } from 'react-hook-form'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 
 const Container = styled.div`
   width: 100%;
