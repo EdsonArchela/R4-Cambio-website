@@ -78,7 +78,7 @@ const theme = {
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   const router = useRouter()
   useEffect(() => {
-    const handleRouteChange = (url: string) => {
+    const handleRouteChange = (url: URL) => {
       gtag.pageview(url)
     }
     router.events.on('routeChangeComplete', handleRouteChange)
