@@ -213,11 +213,12 @@ export const FirstSection = styled.section`
       align-items: center;
       justify-content: center;
       width: 570px;
-      height: 653px;
-
+      padding-bottom: 2rem;
+      max-height: 653px;
       background: #ffffff;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       border-radius: 10px;
+      position: relative;
     }
 
     .transferBoxText {
