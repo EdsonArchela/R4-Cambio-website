@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import React, { useCallback, useEffect, useState } from 'react'
 import axios from 'axios'
+// import { useRouter } from 'next/dist/client/router'
 import { Container, Costs, Currency, Options, Recipient, RemiType, Simulator } from './styles'
 
 const flagsIcons = {
@@ -30,7 +31,7 @@ const flagsIcons = {
   },
 }
 
-interface SimulationInputs {
+export interface SimulationInputs {
   type: 'envio' | 'recebimento'
   currency: 'USD' | 'EUR' | 'GBP' | 'CAD' | 'AUD' | 'BRL'
   toWho: string
@@ -92,6 +93,8 @@ interface Simulation {
 let lastCurrency = 0.0
 
 const FrenteSimul = (): JSX.Element => {
+  // const route = useRouter()
+
   const [realValue, setRealValue] = useState('R$ 1000,00')
   const [currencyValue, setCurrencyValue] = useState<string>()
 
@@ -103,20 +106,6 @@ const FrenteSimul = (): JSX.Element => {
   })
 
   const [simulation, setSimulation] = useState<Simulation>()
-
-  // useEffect(() => {
-  //   axios
-  //     .get(
-  //       `https://api.frentecorretora.com.br/v1/exchanges/remittance/${
-  //         simInput.type === 'envio' ? 'outbound' : 'inbound'
-  //       }/reverse/?purposeCode=${simInput.toWho}&currency=${
-  //         simInput.currency
-  //       }&correspondentId=26&value=${simInput.value * 100}`
-  //     )
-  //     .then((response) => {
-  //       setSimulation(response.data)
-  //     })
-  // }, [simInput.currency, simInput.toWho, simInput.type, simInput.value])
 
   const updateReal = useCallback(
     (n_real: number): boolean => {
@@ -188,7 +177,7 @@ const FrenteSimul = (): JSX.Element => {
         updateCurrency(n_currency)
         lastCurrency = n_currency
       }
-    }, 3000)
+    }, 1000)
 
     return () => clearTimeout(delayDebounceFn)
   }, [currencyValue, realValue, updateCurrency, updateReal])
@@ -377,15 +366,7 @@ const FrenteSimul = (): JSX.Element => {
           <div className="value">
             <input
               type="text"
-              value={
-                simulation && (simInput.type !== 'envio' ? realValue : currencyValue)
-                // : (
-                //     simulation.currency.offer.value / simulation.currency.offer.divisor
-                //   ).toLocaleString('pt-BR', {
-                //     style: 'currency',
-                //     currency: simInput.currency,
-                //   }))
-              }
+              value={simulation && (simInput.type !== 'envio' ? realValue : currencyValue)}
               onChange={(event) => {
                 if (simInput.type !== 'envio') setRealValue(event.currentTarget.value)
                 else {
@@ -395,6 +376,18 @@ const FrenteSimul = (): JSX.Element => {
             />
           </div>
         </Currency>
+        {/* <button
+          type="button"
+          className="primary-button"
+          onClick={() => {
+            route.push({
+              pathname: '/transaction',
+              query: { ...simInput },
+            })
+          }}
+        >
+          SIMULAR AGORA
+        </button>  */}
         <a
           className="primary-button"
           target="_blank"
