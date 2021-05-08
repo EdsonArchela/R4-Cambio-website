@@ -7,7 +7,7 @@ const api = axios.create({ baseURL: 'https://api.demo.frentecorretora.com.br/v1'
 export const correspondentLogin = async (response: NextApiResponse) => {
   const rep = await api.post('/auth/user_correspondents/sign_in', {
     email: 'edsonarchela@r4cambio.com.br',
-    password: '4cambio123*',
+    password: process.env.FRENTE_CORRESPONDENT_PSW,
   })
   const token: string = rep.data
   return response.json({ token })

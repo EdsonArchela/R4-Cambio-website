@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import React, { useCallback, useEffect, useState } from 'react'
 import axios from 'axios'
-import { useRouter } from 'next/dist/client/router'
+// import { useRouter } from 'next/dist/client/router'
 import { Container, Costs, Currency, Options, Recipient, RemiType, Simulator } from './styles'
 
 const flagsIcons = {
@@ -93,7 +93,7 @@ interface Simulation {
 let lastCurrency = 0.0
 
 const FrenteSimul = (): JSX.Element => {
-  const route = useRouter()
+  // const route = useRouter()
 
   const [realValue, setRealValue] = useState('R$ 1000,00')
   const [currencyValue, setCurrencyValue] = useState<string>()
@@ -376,7 +376,7 @@ const FrenteSimul = (): JSX.Element => {
             />
           </div>
         </Currency>
-        <button
+        {/* <button
           type="button"
           className="primary-button"
           onClick={() => {
@@ -387,7 +387,16 @@ const FrenteSimul = (): JSX.Element => {
           }}
         >
           SIMULAR AGORA
-        </button>
+        </button>  */}
+        <a
+          className="primary-button"
+          target="_blank"
+          href="https://iamsimple.com.br/r4cambio/"
+          rel="noreferrer"
+          style={{ height: '2rem' }}
+        >
+          SIMULAR AGORA
+        </a>
       </Simulator>
     </Container>
   )
