@@ -1,11 +1,11 @@
 import { useRouter } from 'next/dist/client/router'
-import { useEffect, useState } from 'react'
-import { SimulationInputs } from '../components/FrenteSimul/FrenteSimul'
+import React, { useEffect } from 'react'
+// import { SimulationInputs } from '../components/FrenteSimul/FrenteSimul'
 
 const Transaction = (): JSX.Element => {
   const router = useRouter()
   const inputs = router.query
-  const [correspondentId, setCorrespondentId] = useState<number>()
+  // const [correspondentId, setCorrespondentId] = useState<number>()
 
   useEffect(() => {
     const t = localStorage.getItem('@r4cambio-web:frente-token')
