@@ -59,7 +59,9 @@ export const Currency = styled.div`
     max-height: 53px;
     box-sizing: border-box;
     img {
+      position: static;
       width: 25px !important;
+      margin-left: 1rem;
       margin-right: 1rem;
     }
 
@@ -76,6 +78,7 @@ export const Currency = styled.div`
   }
 
   .value {
+    max-width: 30%;
     padding: 1rem 2rem;
     border: 1px solid #ccc;
     border-left: none;
