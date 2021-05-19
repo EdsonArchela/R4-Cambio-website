@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import Head from 'next/head'
 import type { AppProps /* , AppContext */ } from 'next/app'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
+import { Provider as AuthProvider } from 'next-auth/client'
 import { useRouter } from 'next/router'
 import Header from '../components/pattern/Header'
 import Footer from '../components/pattern/Footer'
@@ -151,11 +152,13 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
           <meta name="og:email" content="contato@r4cambio.com.br" />
           <meta name="og:phone_number" content="554333411032" />
         </Head>
-        <Header />
-        <Component {...pageProps} />
-        <div style={{ flex: 1 }} />
-        <FloatingWhatsapp />
-        <Footer />
+        <AuthProvider>
+          <Header />
+          <Component {...pageProps} />
+          <div style={{ flex: 1 }} />
+          <FloatingWhatsapp />
+          <Footer />
+        </AuthProvider>
       </div>
       <GlobalStyle />
     </ThemeProvider>

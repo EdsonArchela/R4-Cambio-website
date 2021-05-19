@@ -4,12 +4,9 @@ import Providers from 'next-auth/providers'
 export default NextAuth({
   // Configure one or more authentication providers
   providers: [
-    Providers.Credentials({
-      credentials: {
-        username: { label: 'E-mail', type: 'email' },
-        cpf: { label: 'CPF', type: 'text', placeholder: '000.000.000-00' },
-        password: { label: 'Senha', type: 'password' },
-      },
+    Providers.Google({
+      clientId: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET,
     }),
   ],
 
