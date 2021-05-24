@@ -213,11 +213,12 @@ export const FirstSection = styled.section`
       align-items: center;
       justify-content: center;
       width: 570px;
-      height: 653px;
-
+      padding-bottom: 2rem;
+      max-height: 653px;
       background: #ffffff;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       border-radius: 10px;
+      position: relative;
     }
 
     .transferBoxText {
@@ -310,9 +311,6 @@ export const FirstSection = styled.section`
   }
 
   @media (max-width: 768px) {
-    height: 500px;
-    margin-top: 120px;
-
     .background {
       height: 132px;
 
@@ -330,7 +328,6 @@ export const FirstSection = styled.section`
 
     .block {
       flex-direction: column;
-      height: 600px;
 
       .textBlock {
         width: 100%;
@@ -338,7 +335,7 @@ export const FirstSection = styled.section`
 
       h2 {
         position: relative;
-        top: 280px;
+        top: 225px;
         display: flex;
         justify-content: center;
         font-size: 20px;
@@ -348,25 +345,25 @@ export const FirstSection = styled.section`
 
       img {
         position: relative;
-        top: -30px;
         display: block;
 
         margin-left: auto;
         margin-right: auto;
 
+        top: -50px;
         width: 237px;
         height: 178px;
       }
 
       .transferBox {
         position: relative;
-        top: 100px;
-        width: 298px;
-        height: 308px;
+        display: block;
+        top: 50px;
+        width: 95%;
       }
 
       .transferBoxText {
-        width: 298px;
+        width: 90%;
         margin-left: 43;
 
         h2 {

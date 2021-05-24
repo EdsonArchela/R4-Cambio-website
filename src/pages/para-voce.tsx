@@ -18,6 +18,7 @@ import {
 import ElasticWhiteArrow from '../components/ElasticWhiteArrow'
 import ElasticArrow from '../components/ElasticArrow'
 import { loadBlogPosts, PostData } from '../utils/loader'
+import FrenteSimul from '../components/FrenteSimul/FrenteSimul'
 
 const ParaVoce = ({ posts }: { posts: PostData[] }): JSX.Element => {
   const [width, setWidth] = React.useState(0)
@@ -80,38 +81,7 @@ const ParaVoce = ({ posts }: { posts: PostData[] }): JSX.Element => {
                 <img src="/paravoce/TI2 1.png" alt="TI2" />
               </div>
               <div className="transferBox">
-                <div className="transferBoxText">
-                  <h2>Título</h2>
-                  <div className="item">
-                    <img src="/paravoce/CHECKLIST 1.png" alt="" />
-                    <p>Menos burocracia para você </p>
-                  </div>
-                  <div className="item">
-                    <img src="/paravoce/CHECKLIST 1.png" alt="" />
-                    <p>Transferência em até 24 horas</p>
-                  </div>
-                  <div className="item">
-                    <img src="/paravoce/CHECKLIST 1.png" alt="" />
-                    <p>Envie para qualquer país </p>
-                  </div>
-                  <div className="item">
-                    <img src="/paravoce/CHECKLIST 1.png" alt="" />
-                    <p>Tarifa fixa por operação </p>
-                  </div>
-                  <div className="item">
-                    <img src="/paravoce/CHECKLIST 1.png" alt="" />
-                    <p>Segurança nas operações </p>
-                  </div>
-                </div>
-                <a
-                  className="primary-button"
-                  target="_blank"
-                  href="https://iamsimple.com.br/r4cambio/"
-                  rel="noreferrer"
-                  style={{ height: '2rem' }}
-                >
-                  quero fazer uma tranferência
-                </a>
+                <FrenteSimul />
               </div>
             </div>
           </div>

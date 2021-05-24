@@ -1,11 +1,14 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react'
-import App from 'next/app'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
+import type { AppProps /* , AppContext */ } from 'next/app'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
+import { Provider as AuthProvider } from 'next-auth/client'
+import { useRouter } from 'next/router'
 import Header from '../components/pattern/Header'
 import Footer from '../components/pattern/Footer'
 import FloatingWhatsapp from '../components/FloatingWhatsapp'
+import * as gtag from '../../lib/gtag'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -73,11 +76,21 @@ const theme = {
   },
 }
 
-export default class MyApp extends App {
-  render(): JSX.Element {
-    const { Component, pageProps } = this.props
-    return (
-      <ThemeProvider theme={theme}>
+const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
+  const router = useRouter()
+  useEffect(() => {
+    const handleRouteChange = (url: URL) => {
+      gtag.pageview(url)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
+
+  return (
+    <ThemeProvider theme={theme}>
+      <AuthProvider>
         <div
           style={{
             display: 'flex',
@@ -147,7 +160,9 @@ export default class MyApp extends App {
           <Footer />
         </div>
         <GlobalStyle />
-      </ThemeProvider>
-    )
-  }
+      </AuthProvider>
+    </ThemeProvider>
+  )
 }
+
+export default MyApp
