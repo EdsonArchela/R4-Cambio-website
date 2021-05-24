@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import Head from 'next/head'
 import type { AppProps /* , AppContext */ } from 'next/app'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
+import { Provider as AuthProvider } from 'next-auth/client'
 import { useRouter } from 'next/router'
 import Header from '../components/pattern/Header'
 import Footer from '../components/pattern/Footer'
@@ -89,75 +90,77 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
 
   return (
     <ThemeProvider theme={theme}>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          minHeight: '100vh',
-          maxWidth: '100vw',
-          overflow: 'hidden',
-        }}
-      >
-        <Head>
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&family=Roboto:wght@400;700&display=swap"
-            rel="stylesheet"
-          />
-          <link rel="shortcut icon" href="/favicon.ico" />
-          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-png" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-          <link rel="manifest" href="/site.webmanifest" />
-          <title>R4 Câmbio</title>
-          <meta
-            name="keywords"
-            content="cambio, câmbio, importação, exportação, FINIMP, ACC, ACE, viajem, Londrina, remessa, comex, comercio exterior, SWIFT, R4 Câmbio, Invoice, BL, bl"
-          />
-          <meta
-            name="description"
-            content="Uma plataforma aberta de câmbio focada em fornecer os melhores produtos e condições à seus clientes. Além de trazer uma visão atualizada de mercado."
-          />
-          <meta name="subject" content="Operações de câmbio" />
-          <meta name="copyright" content="R4 Câmbio" />
-          <meta name="language" content="pt-BR" />
-          <meta name="robots" content="index,follow" />
-          <meta name="topic" content="cambio" />
-          <meta
-            name="summary"
-            content="Uma plataforma aberta de câmbio focada em fornecer os melhores produtos e condições à seus clientes. Além de trazer uma visão atualizada de mercado."
-          />
-          <meta name="Classification" content="Business" />
-          <meta name="author" content="Edson Archela, edsonarchela@r4cambio.com.br" />
-          <meta name="reply-to" content="contato@r4cambio.com.br" />
-          <meta name="url" content="http://www.r4cambio.com.br" />
-          <meta name="identifier-URL" content="http://www.r4cambio.com.br" />
-          <meta name="coverage" content="Worldwide" />
-          <meta name="distribution" content="Global" />
-          <meta name="rating" content="General" />
+      <AuthProvider>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            minHeight: '100vh',
+            maxWidth: '100vw',
+            overflow: 'hidden',
+          }}
+        >
+          <Head>
+            <link rel="preconnect" href="https://fonts.gstatic.com" />
+            <link
+              href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&family=Roboto:wght@400;700&display=swap"
+              rel="stylesheet"
+            />
+            <link rel="shortcut icon" href="/favicon.ico" />
+            <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-png" />
+            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+            <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+            <link rel="manifest" href="/site.webmanifest" />
+            <title>R4 Câmbio</title>
+            <meta
+              name="keywords"
+              content="cambio, câmbio, importação, exportação, FINIMP, ACC, ACE, viajem, Londrina, remessa, comex, comercio exterior, SWIFT, R4 Câmbio, Invoice, BL, bl"
+            />
+            <meta
+              name="description"
+              content="Uma plataforma aberta de câmbio focada em fornecer os melhores produtos e condições à seus clientes. Além de trazer uma visão atualizada de mercado."
+            />
+            <meta name="subject" content="Operações de câmbio" />
+            <meta name="copyright" content="R4 Câmbio" />
+            <meta name="language" content="pt-BR" />
+            <meta name="robots" content="index,follow" />
+            <meta name="topic" content="cambio" />
+            <meta
+              name="summary"
+              content="Uma plataforma aberta de câmbio focada em fornecer os melhores produtos e condições à seus clientes. Além de trazer uma visão atualizada de mercado."
+            />
+            <meta name="Classification" content="Business" />
+            <meta name="author" content="Edson Archela, edsonarchela@r4cambio.com.br" />
+            <meta name="reply-to" content="contato@r4cambio.com.br" />
+            <meta name="url" content="http://www.r4cambio.com.br" />
+            <meta name="identifier-URL" content="http://www.r4cambio.com.br" />
+            <meta name="coverage" content="Worldwide" />
+            <meta name="distribution" content="Global" />
+            <meta name="rating" content="General" />
 
-          <meta name="og:title" content="R4 Câmbio" />
-          <meta name="og:type" content="website" />
-          <meta name="og:url" content="http://www.r4cambio.com.br" />
-          <meta name="og:image" content="/assets/logoR4cambio-verde.jpg" />
-          <meta name="og:site_name" content="R4 Câmbio" />
-          <meta
-            name="og:description"
-            content="Uma plataforma aberta de câmbio focada em fornecer os melhores produtos e condições à seus clientes. Além de trazer uma visão atualizada de mercado."
-          />
+            <meta name="og:title" content="R4 Câmbio" />
+            <meta name="og:type" content="website" />
+            <meta name="og:url" content="http://www.r4cambio.com.br" />
+            <meta name="og:image" content="/assets/logoR4cambio-verde.jpg" />
+            <meta name="og:site_name" content="R4 Câmbio" />
+            <meta
+              name="og:description"
+              content="Uma plataforma aberta de câmbio focada em fornecer os melhores produtos e condições à seus clientes. Além de trazer uma visão atualizada de mercado."
+            />
 
-          <meta name="og:email" content="contato@r4cambio.com.br" />
-          <meta name="og:phone_number" content="554333411032" />
-        </Head>
-        <Header />
-        <Component {...pageProps} />
-        <div style={{ flex: 1 }} />
-        <FloatingWhatsapp />
-        <Footer />
-      </div>
-      <GlobalStyle />
+            <meta name="og:email" content="contato@r4cambio.com.br" />
+            <meta name="og:phone_number" content="554333411032" />
+          </Head>
+          <Header />
+          <Component {...pageProps} />
+          <div style={{ flex: 1 }} />
+          <FloatingWhatsapp />
+          <Footer />
+        </div>
+        <GlobalStyle />
+      </AuthProvider>
     </ThemeProvider>
   )
 }
