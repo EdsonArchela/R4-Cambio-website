@@ -311,7 +311,7 @@ const ParaVoce = ({ posts }: { posts: PostData[] }): JSX.Element => {
                   type="button"
                   className="primary-button"
                   onClick={() => {
-                    router.push(post.path)
+                    router.push(`/${post.path}`)
                   }}
                 >
                   conferir a matéria
