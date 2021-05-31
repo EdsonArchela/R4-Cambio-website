@@ -37,7 +37,7 @@ const BlogPost: React.FunctionComponent<{ post: PostData; otherPosts: PostData[]
         <meta name="og:url" content={`https://r4-cambio-website.vercel.app/${post.path}`} />
         <meta
           name="og:image"
-          content={`https://r4-cambio-website.vercel.app/${post.thumbnailPhoto}`}
+          content={`https://r4-cambio-website.vercel.app${post.thumbnailPhoto}`}
         />
         <meta name="og:site_name" content="R4 Câmbio" />
         <meta name="og:description" content={post.description} />
