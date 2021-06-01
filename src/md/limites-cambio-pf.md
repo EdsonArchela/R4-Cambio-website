@@ -1,5 +1,5 @@
 ---
-title: Você sabe qual o limite de compra de moeda estrangiera que uma pessoa física pode fazer?
+title: Você sabe qual o limite de compra de moeda estrangeira que uma pessoa física pode fazer?
 subtitle: Com a popularização e disceminação dos produtos de investimentos no Brasil muitos investidores tem começado a olhar para outros países com o objetivo de diversificar suas carteiras. Veja quais os limites de moeda que podem ser transferidos entre países para pessoas físicas.
 published: true
 datePublished: 1618665692000
