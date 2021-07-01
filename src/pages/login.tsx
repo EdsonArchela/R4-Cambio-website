@@ -111,7 +111,8 @@ export default function LogIn() {
   const [values, setValues] = React.useState<string>('')
 
   async function handleSignIn(data: { documment: string; password: string }) {
-    await signIn(data)
+    console.log(data)
+    await signIn({ documment: values, password: data.password })
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
