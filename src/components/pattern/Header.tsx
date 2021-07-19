@@ -212,6 +212,9 @@ const Header: React.FC = () => {
           <li className={asPath === '/contact/' ? 'active' : undefined}>
             <Link href="/contact">Contato</Link>
           </li>
+          <li className={asPath === '/login/' ? 'active' : undefined}>
+            <Link href="/login">Entrar</Link>
+          </li>
         </ul>
       </div>
 
