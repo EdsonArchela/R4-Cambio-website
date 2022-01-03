@@ -7,7 +7,7 @@ import { useRouter } from 'next/dist/client/router'
 import {
   Main,
   Bar,
-  FirstSection,
+  // FirstSection,
   SecondSection,
   WhiteSlide,
   ThirdSection,
@@ -18,7 +18,7 @@ import {
 import ElasticWhiteArrow from '../components/ElasticWhiteArrow'
 import ElasticArrow from '../components/ElasticArrow'
 import { loadBlogPosts, PostData } from '../utils/loader'
-import FrenteSimul from '../components/FrenteSimul/FrenteSimul'
+// import FrenteSimul from '../components/FrenteSimul/FrenteSimul'
 
 const ParaVoce = ({ posts }: { posts: PostData[] }): JSX.Element => {
   const [width, setWidth] = React.useState(0)
@@ -72,7 +72,7 @@ const ParaVoce = ({ posts }: { posts: PostData[] }): JSX.Element => {
         </div>
         <Bar />
       </Main>
-      <FirstSection>
+      {/* <FirstSection>
         <div className="background">
           <div className="action">
             <div className="block">
@@ -86,7 +86,7 @@ const ParaVoce = ({ posts }: { posts: PostData[] }): JSX.Element => {
             </div>
           </div>
         </div>
-      </FirstSection>
+      </FirstSection> */}
       <SecondSection>
         <div className="gradient">
           <div className="block">
